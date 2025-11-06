@@ -175,7 +175,7 @@ body {
     animation: scroll 2s infinite;
 }
 
-[keyframes](cci:4://file://keyframes:0:0-0:0) scroll {
+@keyframes scroll {
     0%, 20% {
         transform: translateY(0);
         opacity: 0;
@@ -339,7 +339,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 10px;
-    transition: width 1s ease;
+    transition: width 3s ease;
 }
 
 /* Resume Section */
@@ -397,7 +397,13 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
+}
+
+.job-title--minor {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
 }
 
 .job-date {

@@ -99,17 +99,33 @@ contactForm.addEventListener('submit', (e) => {
 // Animate skill bars on scroll
 const skillBars = document.querySelectorAll('.skill-progress');
 
+// Initialize all bars to 0% on page load
+skillBars.forEach(bar => {
+    const targetWidth = bar.style.width;
+    bar.setAttribute('data-width', targetWidth);  // Save target width
+    bar.style.width = '0%';                       // Start at 0%
+});
+
 const animateSkills = () => {
     skillBars.forEach(bar => {
         const barPosition = bar.getBoundingClientRect().top;
         const screenPosition = window.innerHeight;
+        const barBottom = bar.getBoundingClientRect().bottom;
         
-        if (barPosition < screenPosition) {
-            const width = bar.style.width;
+        // Check if bar is in viewport
+        if (barPosition < screenPosition && barBottom > 0) {
+            // Bar is visible - animate if not already animated
+            if (!bar.classList.contains('animated')) {
+                bar.classList.add('animated');
+                const targetWidth = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 300);
+            }
+        } else {
+            // Bar is out of view - reset to 0%
+            bar.classList.remove('animated');
             bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
         }
     });
 };
