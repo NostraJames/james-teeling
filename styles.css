@@ -624,6 +624,33 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+#contactForm button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form Messages */
+.form-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 /* Footer */
 .footer {
     background: var(--text-dark);
