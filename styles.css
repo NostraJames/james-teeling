@@ -579,76 +579,59 @@ body {
     transform: translateY(-3px);
 }
 
-/* Contact Form */
-.form-group {
+/* Contact CTA */
+.contact-cta {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-cta h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.contact-cta p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-cta .btn-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    text-decoration: none;
     margin-bottom: 1.5rem;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
+.contact-cta .btn-large svg {
+    flex-shrink: 0;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
+.contact-note {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 
-.form-group textarea {
-    resize: vertical;
-}
-
-#contactForm button {
-    width: 100%;
-    padding: 12px 32px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-#contactForm button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-#contactForm button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Form Messages */
-.form-message {
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+.contact-note a {
+    color: var(--primary-color);
+    text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
+    transition: var(--transition);
 }
 
-.form-message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.form-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.contact-note a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 /* Footer */
