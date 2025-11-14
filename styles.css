@@ -556,6 +556,24 @@ body {
     flex-shrink: 0;
 }
 
+.contact-item-clickable {
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: -0.5rem;
+    border-radius: 8px;
+}
+
+.contact-item-clickable:hover {
+    background: var(--bg-light);
+    transform: translateX(5px);
+}
+
+.contact-item-clickable:hover svg {
+    color: var(--secondary-color);
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
