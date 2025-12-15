@@ -43,6 +43,20 @@ body {
     transition: var(--transition);
 }
 
+.btn-download {
+    background-color: #a5a7fac0;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+
+}
+
+.btn-download:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -501,7 +515,7 @@ body {
 }
 
 .tag {
-    background: var(--bg-light);
+    background: #D6EAFF;
     color: var(--text-dark);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
