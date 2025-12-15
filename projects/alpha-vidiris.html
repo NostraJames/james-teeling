@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Alpha Vidiris - Space Exploration Board Game Case Study">
     <title>Alpha Vidiris - James Teeling</title>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="project-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,11 +31,11 @@
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Product Designer / Developer</span>
+                    <span class="meta-value">Product Manager, Product Designer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">[Add Timeline]</span>
+                    <span class="meta-value">6 Months</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Category</span>
@@ -50,8 +51,8 @@
         <!-- Overview Section -->
         <section class="content-section">
             <h2 class="section-title">Overview</h2>
-            <p>[Describe Alpha Vidiris - the theme, core mechanics, and what makes it unique]</p>
-            <p>[Explain the target audience and the gaming experience you wanted to create]</p>
+            <p>Alpha Vidiris is a space-themed strategic board game designed completely from scratch. It supports 4+ players and offers multiple paths to victory through technology, expansion, and strategic combat. The game emphasizes high replay-ability through balanced factions and dynamic mechanics.</p>
+            <p>Created as a meaningful gift for a close friend going through a difficult time, this project became an exercise in applying rigorous product development principles to physical game design.</p>
         </section>
 
         <!-- Problem Statement -->
@@ -59,48 +60,45 @@
             <h2 class="section-title">The Challenge</h2>
             <div class="highlight-box">
                 <h3>Design Goal</h3>
-                <p>[What problem were you solving with this game? What gap in the market?]</p>
+                <p>Create a completely original board game that was space-themed, supported at least 4 players, encouraged combat but with multiple paths to victory (technology, expansion, strategy), and offered high replay-ability with balanced factions and mechanics.</p>
             </div>
-            <p>[Elaborate on the challenges of creating a balanced, engaging board game]</p>
+            <p>The game needed to feel fun and engaging every time it was played, be balanced, fair, and strategically deep, and have high-quality, usable boards and pieces.</p>
+            <p><strong>Key challenge:</strong> We had to create everything from scratch — mechanics, player boards, game tiles, pieces, and usability features — and make sure it held up to real-world play-testing.</p>
         </section>
 
         <!-- Product Development Process -->
         <section class="content-section">
             <h2 class="section-title">Product Development Process</h2>
             
-            <h3 class="section-subtitle">Ideation & Concept</h3>
-            <p>[Describe initial concept, brainstorming, and early prototypes]</p>
+            <h3 class="section-subtitle">Mechanics Development</h3>
+            <p>Started by pulling in mechanics from games we enjoyed, then built original mechanics for combat and replay-ability. Iterated constantly through play-testing, adding risk-reward layers so players could exploit mechanics — but at a cost.</p>
             
-            <h3 class="section-subtitle">User Research & Testing</h3>
-            <p>[Describe how you conducted user research and playtesting]</p>
-            <ul>
-                <li><strong>User Interviews:</strong> [Description]</li>
-                <li><strong>Playtesting Sessions:</strong> [Description]</li>
-                <li><strong>A/B Testing:</strong> [Description of what you tested]</li>
-            </ul>
+            <h3 class="section-subtitle">Game Board Design</h3>
+            <p>Used hex tiles to encourage exploration and combat. Solved the problem of tiles shifting (a common issue in hex-based games) by designing Fusion360 tile holders with embedded magnets so the map stayed together on any table.</p>
 
-            <h3 class="section-subtitle">Iterative Design</h3>
-            <p>[Describe the iteration cycles and how feedback shaped the game]</p>
+            <h3 class="section-subtitle">Player Board Design</h3>
+            <p>Designed 5 core playable actions (with 2 playable at a time), requiring the board to track actions, resources, and power cubes. Introduced player card mechanics mid-way, which required additional board storage features.</p>
+            <p>Ran A/B testing with players to refine usability. Final design: a 3-piece magnetic player board that self-contained tokens, cubes, and cards — highly usable and received excellent player feedback.</p>
         </section>
 
         <!-- Game Mechanics -->
         <section class="content-section">
             <h2 class="section-title">Game Mechanics</h2>
-            <p>[Describe the core game mechanics and rules]</p>
+            <p>Alpha Vidiris features original mechanics designed to create strategic depth while maintaining engaging gameplay. The system encourages risk-reward decision-making where players can exploit mechanics, but always at a cost.</p>
             
             <h3 class="section-subtitle">Key Features</h3>
             <ul>
-                <li><strong>Exploration System:</strong> [Description]</li>
-                <li><strong>Combat Mechanics:</strong> [Description]</li>
-                <li><strong>Resource Management:</strong> [Description]</li>
-                <li><strong>Victory Conditions:</strong> [Description]</li>
+                <li><strong>Exploration System:</strong> Hex-tile based map with magnetic holders preventing tile drift during gameplay</li>
+                <li><strong>Combat Mechanics:</strong> Strategic combat with multiple paths to victory through military, technology, or expansion</li>
+                <li><strong>Resource Management:</strong> 5 core playable actions tracked on 3-piece magnetic player boards with integrated storage</li>
+                <li><strong>Victory Conditions:</strong> Multiple paths to victory ensuring high replay-ability and strategic diversity</li>
             </ul>
 
             <!-- Add game images here -->
             <div class="image-gallery">
                 <div class="gallery-item">
-                    <img src="../assets/photos/av/avimage.jpeg" alt="Alpha Vidiris Board Game">
-                    <div class="gallery-caption">[Add caption describing game components]</div>
+                    <img src="AV_assets/use/final16.jpeg" alt="Alpha Vidiris Board Game">
+                    <div class="gallery-caption">Alpha Vidiris final product</div>
                 </div>
                 <!-- Add more images as needed -->
             </div>
@@ -111,7 +109,28 @@
             <h2 class="section-title">Design & Manufacturing</h2>
             
             <h3 class="section-subtitle">CAD Design</h3>
-            <p>[Describe the CAD work for game pieces, board, and components]</p>
+            <p>All game components were designed in Fusion 360, from the magnetic tile holders to the 3-piece player boards. CAD design allowed for precise prototyping and iterative refinement of physical components.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item video-gallery-item" onclick="openVideoModal('AV_assets/cad/cad1.mov')">
+                    <video autoplay loop muted playsinline>
+                        <source src="AV_assets/cad/cad1.mov" type="video/quicktime">
+                    </video>
+                    <div class="gallery-caption">Tech Tree Design</div>
+                </div>
+                <div class="gallery-item video-gallery-item" onclick="openVideoModal('AV_assets/cad/cad2.mov')">
+                    <video autoplay loop muted playsinline>
+                        <source src="AV_assets/cad/cad2.mov" type="video/quicktime">
+                    </video>
+                    <div class="gallery-caption">Game tile holder. Designed to hold the entire galaxy and close with strong magnets for secure storage</div>
+                </div>
+                <div class="gallery-item video-gallery-item" onclick="openVideoModal('AV_assets/cad/cad3.mov')">
+                    <video autoplay loop muted playsinline>
+                        <source src="AV_assets/cad/cad3.mov" type="video/quicktime">
+                    </video>
+                    <div class="gallery-caption">Unique playerboard designed in 3 sections. Self contained board so all player elements can be stored in this board. Board is held together and enclosed with magnets</div>
+                </div>
+            </div>
             
             <div class="tech-stack">
                 <span class="tech-tag">Fusion 360</span>
@@ -122,65 +141,112 @@
             </div>
 
             <h3 class="section-subtitle">Prototyping</h3>
-            <p>[Describe prototyping process - 3D printing, materials, etc.]</p>
+            <p>The prototyping journey involved multiple iterations of physical components, from early paper prototypes to 3D-printed pieces. Each prototype helped refine the game's usability, aesthetics, and functionality through hands-on testing.</p>
+
+            <div class="prototype-gallery">
+                <div class="prototype-thumbnail" onclick="openModal('AV_assets/use/prototype06.jpeg')">
+                    <img src="AV_assets/use/prototype06.jpeg" alt="Alpha Vidiris Early Prototype">
+                </div>
+                <div class="prototype-thumbnail" onclick="openModal('AV_assets/use/prototype07.jpeg')">
+                    <img src="AV_assets/use/prototype07.jpeg" alt="Alpha Vidiris Component Testing">
+                </div>
+                <div class="prototype-thumbnail" onclick="openModal('AV_assets/use/prototype08.jpeg')">
+                    <img src="AV_assets/use/prototype08.jpeg" alt="Alpha Vidiris Magnetic System">
+                </div>
+                <div class="prototype-thumbnail" onclick="openModal('AV_assets/use/prototype10.jpeg')">
+                    <img src="AV_assets/use/prototype10.jpeg" alt="Alpha Vidiris Refined Prototype">
+                </div>
+            </div>
         </section>
 
         <!-- Testing & Validation -->
         <section class="content-section">
             <h2 class="section-title">Testing & Validation</h2>
             
-            <h3 class="section-subtitle">Playtest Findings</h3>
-            <p>[Describe key findings from playtesting]</p>
+            <h3 class="section-subtitle">Testing Approach</h3>
+            <p>Held 15 test sessions, with an iteration after each one. Every session revealed insights that fundamentally shaped mechanics, boards, and usability.</p>
+            
+            <h3 class="section-subtitle">Key Adjustments Made</h3>
             <ul>
-                <li>[Finding 1]</li>
-                <li>[Finding 2]</li>
-                <li>[Finding 3]</li>
+                <li><strong>Mechanics:</strong> Refined risk/reward systems and combat balance through iterative testing</li>
+                <li><strong>Faction Abilities:</strong> Ensured balance and unique play styles across all factions</li>
+                <li><strong>Player Boards:</strong> Conducted usability testing without instructions to identify pain points</li>
             </ul>
 
-            <h3 class="section-subtitle">Balance Adjustments</h3>
-            <p>[Describe how you balanced game mechanics based on feedback]</p>
+            <h3 class="section-subtitle">Design for Real-World Use</h3>
+            <p>Small pain points (like tiles sliding) became major opportunities for innovation. The magnetic tile holder solution directly addressed real gameplay issues discovered during testing.</p>
         </section>
 
         <!-- Results -->
         <section class="content-section">
-            <h2 class="section-title">Results & Reception</h2>
+            <h2 class="section-title">Impact</h2>
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">[#]</div>
+                    <div class="stat-number">15+</div>
                     <div class="stat-label">Playtest Sessions</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">[#]</div>
+                    <div class="stat-number">15+</div>
                     <div class="stat-label">Iterations</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">[#/5]</div>
-                    <div class="stat-label">Player Rating</div>
+                    <div class="stat-number">High</div>
+                    <div class="stat-label">Player Satisfaction</div>
                 </div>
             </div>
 
-            <p>[Describe player feedback and reception]</p>
+            <p>Created Alpha Vidiris, a fully playable, balanced, and replay-able board game. The game was a hit with friends, receiving high satisfaction scores during testing and strong engagement with the final design.</p>
+            <p>Solved real design pain points in board gaming (hex map drift, usability of player boards). Built a product from 0 → 1, using a true product mindset (design, test, feedback, iterate).</p>
         </section>
 
         <!-- Key Learnings -->
         <section class="content-section">
             <h2 class="section-title">Key Learnings</h2>
             <ul>
-                <li><strong>Product Development:</strong> [What you learned about product development]</li>
-                <li><strong>User Research:</strong> [What you learned about user research]</li>
-                <li><strong>Iterative Design:</strong> [What you learned about iteration]</li>
-                <li><strong>Balance & Complexity:</strong> [Lessons on game balance]</li>
+                <li><strong>Iterative testing is non-negotiable:</strong> Every session revealed insights that fundamentally shaped mechanics, boards, and usability.</li>
+                <li><strong>Design for real-world use:</strong> Small pain points (like tiles sliding) became major opportunities for innovation.</li>
+                <li><strong>Balance is ongoing:</strong> Perfecting factions, combat, and strategies took multiple iterations and trade-offs.</li>
+                <li><strong>Treat passion projects like products:</strong> By approaching this as a product, not just a game, we were able to deliver something polished, scalable, and fun.</li>
             </ul>
         </section>
 
         <!-- Call to Action -->
-        <div class="project-cta">
-            <h2>Explore Alpha Vidiris</h2>
-            <p>Learn more about the game design and development process</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/NostraJames/alphavidiris" class="btn btn-primary" target="_blank">View Project on GitHub</a>
-                <a href="../index.html#contact" class="btn btn-secondary">Get in Touch</a>
+        <div class="contact-card-full">
+            <h3>Let's build something awesome!</h3>
+            <div class="social-links-large">
+                <a href="mailto:JamesJTeeling@gmail.com?subject=Job Opportunity - Let's Connect" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/jamesteeling" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/NostraJames" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="contact-info-centered">
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>JamesJTeeling@gmail.com</span>
+                </div>
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Dallas, Texas, USA</span>
+                </div>
             </div>
         </div>
 
@@ -191,6 +257,63 @@
         <p>&copy; 2024 James Teeling. All rights reserved.</p>
         <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
     </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal" onclick="closeVideoModal()">
+        <span class="modal-close">&times;</span>
+        <video class="modal-content" id="modalVideo" controls autoplay loop>
+            <source id="modalVideoSource" type="video/quicktime">
+        </video>
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalVideoSource = document.getElementById('modalVideoSource');
+            modalVideoSource.src = videoSrc;
+            modalVideo.load();
+            modal.style.display = 'flex';
+            modalVideo.play();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            modalVideo.pause();
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeVideoModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
