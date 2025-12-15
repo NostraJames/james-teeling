@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Full Squish - Mountain Bike Suspension Tracking App Case Study">
     <title>Full Squish - James Teeling</title>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="project-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +35,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">[Add Timeline]</span>
+                    <span class="meta-value">3 Months</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Platform</span>
@@ -70,39 +71,26 @@
             </ul>
         </section>
 
-        <!-- Research & Discovery -->
-        <section class="content-section">
-            <h2 class="section-title">Research & Discovery</h2>
-            <h3 class="section-subtitle">User Research</h3>
-            <p>[Describe your research process - interviews, surveys, user observation]</p>
-            
-            <h3 class="section-subtitle">Key Insights</h3>
-            <ul>
-                <li>[Insight 1 from research]</li>
-                <li>[Insight 2 from research]</li>
-                <li>[Insight 3 from research]</li>
-            </ul>
-        </section>
-
         <!-- Solution -->
         <section class="content-section">
             <h2 class="section-title">The Solution</h2>
-            <p>[Describe how Full Squish solves the problem]</p>
+            <p>Full Squish provides a clean, intuitive interface that prioritizes quick recording and retrieval of suspension settings. The app empowers riders to experiment confidently with their suspension setup by maintaining a reliable record of their configurations.</p>
             
             <h3 class="section-subtitle">Core Features</h3>
             <ul>
-                <li><strong>Feature 1:</strong> [Description]</li>
-                <li><strong>Feature 2:</strong> [Description]</li>
-                <li><strong>Feature 3:</strong> [Description]</li>
+                <li><strong>Quick Setup Recording:</strong> Easily save complete suspension configurations for different riding conditions</li>
+                <li><strong>Configuration Management:</strong> Store multiple setups and switch between them as needed</li>
+                <li><strong>Notes & Context:</strong> Add details about trail conditions, riding style, and performance feedback</li>
             </ul>
 
             <!-- Add screenshots/mockups here -->
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="../assets/photos/fullsquish/fullsquishimage.png" alt="Full Squish App Screenshot">
-                    <div class="gallery-caption">[Add caption describing this screenshot]</div>
+            <div class="image-gallery" style="display: flex; justify-content: center;">
+                <div class="gallery-item" style="max-width: 300px;">
+                    <video autoplay loop muted playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <source src="fs_assets/screen.mov" type="video/quicktime">
+                    </video>
+                    <div class="gallery-caption">Full Squish app interface showing suspension configuration tracking</div>
                 </div>
-                <!-- Add more images as needed -->
             </div>
         </section>
 
@@ -110,37 +98,76 @@
         <section class="content-section">
             <h2 class="section-title">Development Process</h2>
             <p>
-                Development strategy was to make sure Full Squish was intuitive for users and easy to get the important information.
-                I wanted to make sure Full Squish addressed the first problem well, which was having a away to see your suspension settings in one place, quickly.
-                The next issue was to be able to make adjustments to your bike and save notes, and make sure that is intuitive and easy.
-                No point in making features that are so complex people don't use them. 
+                I implemented "vibe coding" in collaboration with Windsurf, breaking down the larger vision into manageable components. This collaborative approach between human product thinking and AI technical execution created an efficient development workflow.
             </p>
             
             <h3 class="section-subtitle">Technical Approach</h3>
-            <p>Since I was coding with AI I needed to be very detailed and specific with the prompts.
-                I treated every prompt as a user story and made sure it was clear and specific.
-                I also made sure to include the full context of the app and the user's goals.
-                I also prompted the AI to teach me what we were doing when we were coding and why we were doing it.
-                I want to make sure I learn as a developer and not just get the job done, so I want to address any issues like not having a common asset library. So this will be a major focus going forward as well as getting new features developed. 
-            </p>
+            <p>Our approach involved:</p>
+            <ul>
+                <li><strong>Structured AI Prompts:</strong> Using user story mechanics to maintain clarity and purpose throughout development</li>
+                <li><strong>Educational Framework:</strong> AI responses included what we were building, why it mattered, and educational explanations to facilitate learning</li>
+                <li><strong>Incremental Sprints:</strong> Developing in small iterations with regular testing and refinement</li>
+                <li><strong>Clean Architecture:</strong> Utilizing Node.js for backend functionality and SQL for data persistence</li>
+                <li><strong>User-Centric Design:</strong> Creating an intuitive interface that prioritizes quick recording and retrieval</li>
+            </ul>
             
             <div class="tech-stack">
                 <span class="tech-tag">React Native</span>
                 <span class="tech-tag">Expo Go</span>
                 <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">SQL</span>
                 <span class="tech-tag">GitHub</span>
                 <span class="tech-tag">AI Pair Programming</span>
             </div>
 
             <h3 class="section-subtitle">Iterations & Testing</h3>
             <p>
-                Before official launch, Full Squish was in beta for several months ironing out bugs and user experience. I invited locatl mountain bikes and friends to the TestFlight to get their immediate feedback. 
-                I've also incorpated user feedback into the app to continue to improve the user experience.
+                Before official launch, Full Squish was in beta for several months through TestFlight. I invited local mountain bikers and friends to provide immediate feedback, incorporating their insights to continuously improve the user experience.
             </p>
             <p>
-                Since the feedback loop was short and I was heavily involved with thesting the app as well, 
-                iterations were short, fixes were quick, and new features were pushed sooner.
+                The short feedback loop and my heavy involvement with testing enabled quick iterations, rapid fixes, and faster feature deployment.
             </p>
+        </section>
+
+        <!-- Impact -->
+        <section class="content-section">
+            <h2 class="section-title">Impact</h2>
+            <p>Full Squish is now available for download in the Apple App Store! User feedback has been positive, with riders appreciating the convenience of storing multiple suspension configurations and the ability to track their setup experiments over time.</p>
+            
+            <h3 class="section-subtitle">Check it out!</h3>
+            
+            <div class="app-links-container">
+                <!-- App Store Badge -->
+                <a href="https://apps.apple.com/us/app/fullsquish/id6751511672" target="_blank" rel="noopener" class="app-store-link">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" class="app-store-badge">
+                </a>
+                
+                <!-- iOS-style Link Preview -->
+                <a href="https://nostrajames.github.io" target="_blank" rel="noopener" class="ios-link-preview">
+                    <div class="link-preview-image">
+                        <img src="../assets/photos/fullsquish/fullsquishimage.png" alt="Full Squish Logo" class="link-preview-logo">
+                    </div>
+                    <div class="link-preview-content">
+                        <div class="link-preview-title">Full Squish</div>
+                        <div class="link-preview-url">nostrajames.github.io</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills Acquired -->
+        <section class="content-section">
+            <h2 class="section-title">Skills Acquired</h2>
+            <p>This project significantly expanded my technical knowledge and product management capabilities:</p>
+            <ul>
+                <li><strong>React Native Development:</strong> Cross-platform mobile application development</li>
+                <li><strong>Apple Developer Ecosystem:</strong> Navigation of Apple's development tools and TestFlight deployment</li>
+                <li><strong>AI Prompt Engineering:</strong> Effective collaboration with AI for technical implementation</li>
+                <li><strong>Database Design:</strong> Structuring databases for user preference storage and data persistence</li>
+                <li><strong>Iterative Product Development:</strong> Building and refining minimal viable feature sets based on user feedback</li>
+            </ul>
+            <p>The experience has been invaluable in bridging my product management expertise with hands-on technical implementation, while addressing a real need in the mountain biking community.</p>
         </section>
 
         <!-- Results & Impact -->
@@ -178,21 +205,50 @@
         <!-- Next Steps -->
         <section class="content-section">
             <h2 class="section-title">Future Roadmap</h2>
-            <p>Full Squish is still version 1.0.1 so there are some tech debt I'd like to address and then incorporate features user could value</p>
+            <p>Full Squish is still version 1.0.2 so there are some tech debt I'd like to address and then incorporate features user could value</p>
             <ul>
-                <li>Ensure that the app is running off a design system of shared assets</li>
-                <li>Add a Learning Section for new riders</li>
-                <li>AI Modal that will help you dial in your suspension</li>
+                <li><strong>Refactoring & Tech Debt:</strong> Continue improving code architecture and reducing technical debt to ensure long-term maintainability</li>
+                <li><strong>LLM Chatbot Integration:</strong> Incorporate a large language model-powered chatbot to help users with basic suspension knowledge and setup guidance</li>
+                <li><strong>AI Suspension Guru:</strong> Develop an advanced AI model that acts as a suspension expert, providing personalized setup recommendations based on rider data and preferences</li>
             </ul>
         </section>
 
         <!-- Call to Action -->
-        <div class="project-cta">
-            <h2>Try Full Squish</h2>
-            <p>Download the app and optimize your mountain bike suspension setup</p>
-            <div class="cta-buttons">
-                <a href="https://apps.apple.com/us/app/fullsquish/id6751511672" class="btn btn-primary" target="_blank">Download on App Store</a>
-                <a href="https://nostrajames.github.io" class="btn btn-secondary" target="_blank">Visit Website</a>
+        <div class="contact-card-full">
+            <h3>Let's build something awesome!</h3>
+            <div class="social-links-large">
+                <a href="mailto:JamesJTeeling@gmail.com?subject=Job Opportunity - Let's Connect" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/jamesteeling" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/NostraJames" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="contact-info-centered">
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>JamesJTeeling@gmail.com</span>
+                </div>
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Dallas, Texas, USA</span>
+                </div>
             </div>
         </div>
 

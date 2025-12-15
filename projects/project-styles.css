@@ -72,13 +72,23 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
-                url('AV_assets/chimera_games.png');
+                url('../assets/photos/fullsquish/fullsquishimage.png');
     background-size: cover, contain;
     background-position: center, center;
     background-repeat: no-repeat, no-repeat;
     color: white;
     text-align: center;
     padding: 8rem 2rem 4rem;
+}
+
+/* Project-specific hero backgrounds */
+body:has([href*="alpha-vidiris"]) .project-hero,
+.alpha-vidiris-hero {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
+                url('AV_assets/chimera_games.png');
+    background-size: cover, contain;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
 }
 
 .hero-content {
@@ -445,6 +455,97 @@ body {
     transform: translateY(-2px);
 }
 
+/* App Links Container */
+.app-links-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.app-store-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.app-store-link:hover {
+    transform: translateY(-2px);
+}
+
+.app-store-badge {
+    height: 48px;
+    width: auto;
+}
+
+/* iOS-style Link Preview */
+.ios-link-preview {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-light);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.ios-link-preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.link-preview-image {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.link-preview-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.link-preview-image svg {
+    width: 24px;
+    height: 24px;
+}
+
+.link-preview-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.link-preview-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.link-preview-url {
+    font-size: 0.75rem;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
 /* Footer */
 .project-footer {
     background: var(--text-dark);
@@ -489,5 +590,18 @@ body {
     .modal-close {
         right: 20px;
         font-size: 40px;
+    }
+    
+    .app-links-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .ios-link-preview {
+        width: 100%;
+    }
+    
+    .app-store-link {
+        align-self: flex-start;
     }
 }
