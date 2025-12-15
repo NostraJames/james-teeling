@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bike Fit Calculator - Web Application Case Study">
     <title>Bike Fit Calculator - James Teeling</title>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="project-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,19 +23,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="project-hero">
+    <section class="project-hero bike-fit-hero">
         <div class="hero-content">
             <span class="project-category">Web Application • Full Stack Development</span>
             <h1>Bike Fit Calculator</h1>
-            <p class="subtitle">A web application that calculates bike RAD measurements to help cyclists find their perfect bike fit</p>
+            <p class="subtitle">Medium doesn't mean Medium anymore - A serverless web application using RAD measurements to help cyclists find their perfect bike fit across different manufacturers</p>
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Full Stack Developer / PM</span>
+                    <span class="meta-value">Engineer / Product Manager</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">[Add Timeline]</span>
+                    <span class="meta-value">4 Months</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Platform</span>
@@ -50,139 +51,139 @@
         <!-- Overview Section -->
         <section class="content-section">
             <h2 class="section-title">Overview</h2>
-            <p>This is a Python program I created to calculate a bike's RAD measurement to see if it matches yours. If it does, the bike will fit you perfectly.</p>
-            <p>[Expand on what RAD measurement is and why it matters]</p>
+            <p>Bike geometry is changing as we get more advanced about building bikes. Like shoes, a size 9 with one company isn't the same as a size 9 in another. The Bike Fit Calculator uses the Rider Area Distance (RAD) measurement system to match riders with bikes that truly fit them, regardless of manufacturer or nominal size label.</p>
         </section>
 
         <!-- Problem Statement -->
         <section class="content-section">
             <h2 class="section-title">The Problem</h2>
             <div class="highlight-box">
-                <h3>Industry Challenge</h3>
-                <p>Bike sizes are so different across the industry and it's hard to know what fits you.</p>
+                <h3>Challenge</h3>
+                <p>Bike geometry is changing: Mediums don't fit like they used to. Like shoes, you have to wear them to know if they fit. If you live in Texas, where mountain biking is not a major recreation, demoing bikes is hard to come by.</p>
             </div>
-            <p>[Elaborate on the bike sizing problem]</p>
+            
+            <h3 class="section-subtitle">Key Industry Standards</h3>
             <ul>
-                <li><strong>Inconsistent Sizing:</strong> [Description]</li>
-                <li><strong>Brand Variations:</strong> [Description]</li>
-                <li><strong>Geometry Complexity:</strong> [Description]</li>
+                <li><strong>Geometry Charts:</strong> All bike manufacturers list geometry charts on their website for all sizes and all bikes</li>
+                <li><strong>RAD Measurement:</strong> A mountain bike coach developed the Rider Area Distance (RAD) measurement on a bike and a person</li>
+                <li><strong>Matching Principle:</strong> A rider has a RAD measurement, a bike has a RAD measurement - those two measurements should equal: <code>RAD(Rider) = RAD(Bike)</code></li>
             </ul>
         </section>
 
         <!-- Solution -->
         <section class="content-section">
-            <h2 class="section-title">The Solution</h2>
-            <p>[Describe how the RAD calculator solves the bike sizing problem]</p>
+            <h2 class="section-title">Vision & Solution</h2>
+            <p>Build a bike fit calculator with a database where people can type in their RAD number and retrieve all the bikes and their sizes and setups (handlebar widths, stem lengths, etc.) that would fit that rider. This could be used by bike shops and individuals alike to find the right bike for the rider.</p>
             
-            <h3 class="section-subtitle">How It Works</h3>
-            <ol>
-                <li>[Step 1 - user input]</li>
-                <li>[Step 2 - calculation]</li>
-                <li>[Step 3 - results and recommendations]</li>
-            </ol>
-
-            <!-- Add screenshots here -->
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="../assets/photos/bikefit/bikegeo.png" alt="Bike Fit Calculator Interface">
-                    <div class="gallery-caption">[Add caption describing the interface]</div>
-                </div>
-                <!-- Add more images as needed -->
-            </div>
-        </section>
-
-        <!-- Technical Implementation -->
-        <section class="content-section">
-            <h2 class="section-title">Technical Implementation</h2>
-            
-            <h3 class="section-subtitle">Architecture</h3>
-            <p>[Describe the technical architecture of the application]</p>
-            
-            <div class="tech-stack">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">AWS</span>
-                <span class="tech-tag">JSON</span>
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Git</span>
-            </div>
-
-            <h3 class="section-subtitle">Backend</h3>
-            <p>[Describe the backend implementation with Python/Flask]</p>
-            
-            <h3 class="section-subtitle">Frontend</h3>
-            <p>[Describe the frontend implementation]</p>
-            
-            <h3 class="section-subtitle">Deployment</h3>
-            <p>[Describe AWS deployment]</p>
+            <h3 class="section-subtitle">Key Challenge</h3>
+            <ul>
+                <li><strong>Intellectual Property:</strong> RAD was intellectual property of the mountain bike coach, and I needed to get approval and work with him to achieve this vision</li>
+                <li><strong>Learning Curve:</strong> I was new to Python, but this was a great inspirational project to learn</li>
+            </ul>
         </section>
 
         <!-- Development Process -->
         <section class="content-section">
             <h2 class="section-title">Development Process</h2>
             
-            <h3 class="section-subtitle">Research & Algorithm Development</h3>
-            <p>[Describe how you researched bike geometry and developed the RAD calculation algorithm]</p>
+            <h3 class="section-subtitle">MVP: Python Script</h3>
+            <p>Designed a Python script that contained all the formulas and had input values for bike geometry to calculate a RAD number.</p>
             
-            <h3 class="section-subtitle">User Experience Design</h3>
-            <p>[Describe UX considerations and design decisions]</p>
+            <h3 class="section-subtitle">Phase 2: Modular Functions</h3>
+            <p>Script was broken down into several functions for better maintainability and reusability.</p>
             
-            <h3 class="section-subtitle">Testing & Validation</h3>
-            <p>[Describe how you tested the calculator with real bike data]</p>
+            <h3 class="section-subtitle">Phase 3: Serverless Architecture</h3>
+            <p>Converted the script into a serverless Lambda function in AWS for scalability and cost-efficiency.</p>
+            
+            <h3 class="section-subtitle">Additional Development</h3>
+            <ul>
+                <li><strong>Database Implementation:</strong> Built a database so users could also contribute to the collection of data</li>
+                <li><strong>Frontend Integration:</strong> Created a front-end that fed from a GitHub repo and sent API calls to Lambda code</li>
+                <li><strong>Automation Script:</strong> Built an automation script to pull several bike geo-charts and plug them into the front end to contribute to the database build</li>
+            </ul>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">AWS Lambda</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">JSON</span>
+                <span class="tech-tag">API</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">Serverless</span>
+            </div>
         </section>
+
 
         <!-- Results -->
         <section class="content-section">
-            <h2 class="section-title">Results & Impact</h2>
+            <h2 class="section-title">Impact</h2>
+            <p>A friend and I used this to purchase our next bikes with <strong>size-fit success</strong>. The calculator accurately matched us with bikes that fit perfectly, eliminating the guesswork and need for extensive test rides.</p>
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">[#]</div>
-                    <div class="stat-label">Calculations Performed</div>
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">Successful Bike Purchases</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">[#]</div>
-                    <div class="stat-label">Bike Models in Database</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fit Accuracy</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">[#]%</div>
-                    <div class="stat-label">Accuracy Rate</div>
+                    <div class="stat-number">Serverless</div>
+                    <div class="stat-label">AWS Architecture</div>
                 </div>
             </div>
-
-            <p>[Describe user feedback and impact on helping cyclists find the right bike]</p>
         </section>
 
         <!-- Key Learnings -->
         <section class="content-section">
             <h2 class="section-title">Key Learnings</h2>
             <ul>
-                <li><strong>Full Stack Development:</strong> [What you learned]</li>
-                <li><strong>Algorithm Design:</strong> [What you learned]</li>
-                <li><strong>Cloud Deployment:</strong> [What you learned]</li>
-                <li><strong>User Research:</strong> [What you learned about bike geometry]</li>
-            </ul>
-        </section>
-
-        <!-- Future Enhancements -->
-        <section class="content-section">
-            <h2 class="section-title">Future Enhancements</h2>
-            <ul>
-                <li>[Enhancement 1]</li>
-                <li>[Enhancement 2]</li>
-                <li>[Enhancement 3]</li>
+                <li><strong>Python Development:</strong> Learned Python from scratch through a practical, meaningful project</li>
+                <li><strong>Serverless Architecture:</strong> Gained experience with AWS Lambda and serverless computing patterns</li>
+                <li><strong>API Development:</strong> Built and integrated API calls between frontend and backend services</li>
+                <li><strong>Data Automation:</strong> Created scripts to automate data collection and database population</li>
+                <li><strong>IP Collaboration:</strong> Worked with intellectual property holders to bring a vision to life</li>
+                <li><strong>Bike Geometry Understanding:</strong> Deep dive into bike geometry standards and RAD measurement system</li>
             </ul>
         </section>
 
         <!-- Call to Action -->
-        <div class="project-cta">
-            <h2>Try the Calculator</h2>
-            <p>Find your perfect bike fit using the RAD measurement system</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/NostraJames/bikefitcalculator" class="btn btn-primary" target="_blank">View Project on GitHub</a>
-                <a href="../index.html#contact" class="btn btn-secondary">Get in Touch</a>
+        <div class="contact-card-full">
+            <h3>Let's build something awesome!</h3>
+            <div class="social-links-large">
+                <a href="mailto:JamesJTeeling@gmail.com?subject=Job Opportunity - Let's Connect" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/jamesteeling" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/NostraJames" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="contact-info-centered">
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>JamesJTeeling@gmail.com</span>
+                </div>
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Dallas, Texas, USA</span>
+                </div>
             </div>
         </div>
 

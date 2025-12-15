@@ -99,6 +99,14 @@ body:has([href*="alpha-vidiris"]) .project-hero,
     background-repeat: no-repeat, no-repeat;
 }
 
+.bike-fit-hero {
+    background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
+                      url('bikegeo.png');
+    background-size: cover, contain;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+}
+
 .hero-content {
     max-width: 900px;
 }
