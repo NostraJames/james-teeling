@@ -67,7 +67,7 @@ body {
 
 /* Hero Section */
 .project-hero {
-    min-height: 60vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,7 +78,7 @@ body {
     background-repeat: no-repeat, no-repeat;
     color: white;
     text-align: center;
-    padding: 8rem 2rem 4rem;
+    padding: 6rem 2rem 2rem;
 }
 
 /* Project-specific hero backgrounds */
@@ -122,15 +122,15 @@ body:has([href*="alpha-vidiris"]) .project-hero,
 }
 
 .project-hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .project-hero .subtitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     opacity: 0.9;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .project-meta {
@@ -138,7 +138,7 @@ body:has([href*="alpha-vidiris"]) .project-hero,
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .meta-item {
