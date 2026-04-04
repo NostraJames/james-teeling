@@ -139,11 +139,26 @@ body {
     animation: fadeInUp 1s ease;
 }
 
+.hero-title-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
-    animation: fadeInUp 1s ease 0.2s both;
+    margin-bottom: 0;
+    animation: inherit;
+}
+
+.hero-certifications {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.85;
 }
 
 .hero-subtitle {
