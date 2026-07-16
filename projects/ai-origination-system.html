@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-Assisted M&A Origination System - A multi-agent AI workflow case study by James Teeling">
+    <title>AI Origination System - James Teeling</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Case-study-scoped visuals (no external image needed) */
+        .origination-hero {
+            background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Principle banner */
+        .principle-banner {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .principle-banner p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Workflow cards */
+        .workflow-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .workflow-card .workflow-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .workflow-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+        .workflow-card p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+
+        /* Agent chain (research pipeline) */
+        .agent-chain {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.25rem 0 0.5rem;
+        }
+        .agent-node {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        .agent-arrow { color: var(--primary-color); font-weight: 700; }
+
+        /* Pipeline flow (numbered steps) */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+            counter-reset: flow;
+        }
+        .flow-step {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .flow-step::before {
+            counter-increment: flow;
+            content: counter(flow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .flow-step h4 { color: var(--text-dark); font-size: 1.05rem; margin-bottom: 0.4rem; }
+        .flow-step p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+        .flow-step .actor {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.55rem;
+            border-radius: 20px;
+            margin-top: 0.75rem;
+        }
+        .actor.ai { background: #D6EAFF; color: #1c4f8a; }
+        .actor.human { background: #E6F7EC; color: #1d6b3c; }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.98rem;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        .compare-table th, .compare-table td {
+            text-align: left;
+            padding: 0.9rem 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+        .compare-table thead th {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .compare-table tbody td { color: var(--text-light); }
+        .compare-table td:first-child { font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+        .table-scroll { overflow-x: auto; }
+
+        @media (max-width: 768px) {
+            .agent-chain { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="project-nav">
+        <div class="nav-content">
+            <a href="../index.html#projects" class="back-button">
+                ← Back to Portfolio
+            </a>
+            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero origination-hero">
+        <div class="hero-content">
+            <span class="project-category">AI Systems Design · Multi-Agent Architecture</span>
+            <h1>AI-Assisted M&A Origination System</h1>
+            <p class="subtitle">A multi-agent AI workflow that turns each private-equity client's investment thesis into a tailored, scored list of acquisition targets — and remembers every company it touches.</p>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">AI Systems Designer / Architect</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Ongoing (2026)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Domain</span>
+                    <span class="meta-value">M&A / Private Equity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="project-content">
+
+        <!-- Overview -->
+        <section class="content-section">
+            <h2 class="section-title">Overview</h2>
+            <p>I'm designing and building an AI-assisted origination system for an M&amp;A advisory firm — a boutique that finds privately-held companies open to being sold and matches them to the right private-equity buyer. Origination is the top of the deal funnel, and it has traditionally been slow, memory-dependent, and hard to repeat: every campaign started from a blank page.</p>
+            <p>The system is a coordinated team of specialized AI agents built on top of a durable <strong>data layer</strong>. Agents do the heavy lifting — research, list-building, scoring, formatting — but the design philosophy is deliberate: the AI produces drafts, humans make the decisions, and the compounding value lives in the data the firm accumulates, not in any single generation.</p>
+            <div class="principle-banner">
+                <p>"AI as a tool, not a crutch — every agent output is a draft a human reviews, and the firm's durable asset is the memory it builds, not the model that runs it."</p>
+            </div>
+        </section>
+
+        <!-- The Problem -->
+        <section class="content-section">
+            <h2 class="section-title">The Problem</h2>
+            <div class="highlight-box">
+                <h3>Challenge</h3>
+                <p>Boutique origination runs on human memory and one-off effort. A client explains what they want on a call; an analyst holds that thesis in their head and builds a list keyed to a single theme — usually just "industry." Companies already owned or already contacted slip back into lists. When a company finally replies weeks later, someone has to remember which client it was ever meant for. Nothing compounds — the next campaign begins from zero.</p>
+            </div>
+            <p>The specific failure points I set out to solve:</p>
+            <ul>
+                <li><strong>Shallow targeting:</strong> lists built on one dimension instead of the client's full investment thesis.</li>
+                <li><strong>No institutional memory:</strong> the firm's knowledge lived in inboxes and analysts' heads, not in a durable store.</li>
+                <li><strong>Lost attribution:</strong> when a reply landed, "who was this for?" was answered from memory, if at all.</li>
+                <li><strong>Manual, repeated grind:</strong> research, contact hunting, and list formatting redone by hand every time.</li>
+            </ul>
+        </section>
+
+        <!-- The Solution -->
+        <section class="content-section">
+            <h2 class="section-title">The Solution: A Data Layer With an AI Workforce</h2>
+            <p>The spine of the system is <strong>not</strong> the agents — it's two living data stores that give the firm memory. Everything else reads from and writes back into them:</p>
+            <ul>
+                <li><strong>The Client Repository</strong> — one living investment thesis per PE client, updated from every intake call and quarterly catch-up. Each thesis carries a machine-readable criteria block that every downstream agent consumes.</li>
+                <li><strong>The Target Tracker</strong> — a ledger of every company the firm touches: which campaign it went into, which client(s) it was matched to, why, and its status. This is the reverse-lookup memory that answers "a company just replied — who was this for?"</li>
+            </ul>
+            <p>The agents are the workforce that operate on those stores. Tooling can change; the theses and the tracker come with the firm. On top of that spine, I designed three core AI workflows.</p>
+        </section>
+
+        <!-- Workflow 1: Research -->
+        <section class="content-section">
+            <h2 class="section-title">Workflow 1 — Deep Research Pipeline</h2>
+            <div class="workflow-card">
+                <span class="workflow-eyebrow">Company &amp; Industry Intelligence</span>
+                <h3>Research → Verify → Edit → Publish</h3>
+                <p>Before the firm approaches a company or briefs a client on a sector, it needs research it can trust. I built this as a four-stage relay of specialized agents rather than a single "go research this" prompt — because a lone model produces confident, plausible, and sometimes wrong output. Separating <em>generation</em> from <em>verification</em> is what makes the result defensible.</p>
+                <div class="agent-chain">
+                    <span class="agent-node">Ultra-Researcher</span>
+                    <span class="agent-arrow">→</span>
+                    <span class="agent-node">The Verifier</span>
+                    <span class="agent-arrow">→</span>
+                    <span class="agent-node">The Editor</span>
+                    <span class="agent-arrow">→</span>
+                    <span class="agent-node">The Publisher</span>
+                </div>
+                <ul>
+                    <li><strong>Ultra-Researcher</strong> runs deep, multi-source investigation across the web — financials, M&amp;A history, market landscape — into a structured draft.</li>
+                    <li><strong>The Verifier</strong> is an adversarial pass: it re-checks claims against sources and flags anything unsupported, so findings aren't just plausible, they're substantiated.</li>
+                    <li><strong>The Editor</strong> tightens the verified draft into a clean, decision-ready narrative.</li>
+                    <li><strong>The Publisher</strong> formats the final report for the client or internal use.</li>
+                </ul>
+                <p>The output feeds both sides of the system: sector intelligence sharpens a client's thesis, and company-level research informs how a target is approached.</p>
+            </div>
+        </section>
+
+        <!-- Workflow 2: Thesis + List -->
+        <section class="content-section">
+            <h2 class="section-title">Workflow 2 — Living Client Thesis &amp; List Generation</h2>
+            <div class="workflow-card">
+                <span class="workflow-eyebrow">Source of Truth · Client Repository</span>
+                <h3>Thesis Architect → List Builder</h3>
+                <p>This is the source-of-truth workflow — everything else feeds from it. Instead of a thesis living in an analyst's head, the <strong>Thesis Architect</strong> turns raw client material — intake-call notes, their portfolio, their website, quarterly updates — into a structured, <em>living</em> thesis document. Two design choices matter here:</p>
+                <ul>
+                    <li><strong>Inferences are tagged apart from stated facts.</strong> The agent never lets an assumption masquerade as something the client actually said, and it flags open questions to raise on the next call.</li>
+                    <li><strong>It maintains, not just creates.</strong> Each quarterly catch-up updates the same living document with a dated change log — so the thesis is always current and its evolution is auditable.</li>
+                </ul>
+                <p>The <strong>List Builder</strong> then reads that thesis and translates its <em>firmographic</em> criteria — business model, revenue band, geography, ownership type, seller-intent signals — into a ready-to-run search against a private-company intelligence platform. Two deliberate behaviors:</p>
+                <ul>
+                    <li><strong>It scopes multi-sector theses.</strong> Rather than a broad, unfocused blast, it recommends one focused slice (starting with the client's active platforms) so effort lands where it converts.</li>
+                    <li><strong>It excludes already-owned companies at search time</strong> — pointing the query at the firm's "already in CRM / already contacted" lists — so a company the firm already has is never re-surfaced.</li>
+                </ul>
+                <p>A key architectural nuance: the List Builder keeps metrics the data platform <em>can't</em> filter (EBITDA, margin, growth) out of the search entirely, deferring them to the scoring stage — matching each tool to what it's actually good at.</p>
+            </div>
+        </section>
+
+        <!-- Workflow 3: Matching -->
+        <section class="content-section">
+            <h2 class="section-title">Workflow 3 — Company-to-Client Matching</h2>
+            <div class="workflow-card">
+                <span class="workflow-eyebrow">Scoring &amp; Attribution</span>
+                <h3>The Matcher — bidirectional fit scoring</h3>
+                <p>The <strong>Matcher</strong> scores a company against a client thesis and returns tiers — <strong>Strong / Possible / Weak / Review / Excluded</strong> — each with a plain-English rationale. It's the judgment layer that turns a raw candidate list into a ranked, defensible one. Two things make it more than a similarity score:</p>
+                <ul>
+                    <li><strong>It runs in both directions.</strong> One thesis → a whole list (build a campaign), and one company → every client thesis (a new company appears, or a reply lands — who is this actually for?). That second direction is what powers the firm's attribution memory.</li>
+                    <li><strong>Fit and confidence are separate axes.</strong> Two-stage scoring applies confident-only gates first, then an ordinal weighted score. Thin data lowers <em>confidence</em> without faking a low <em>fit</em>, and an uncertain signal is flagged for human review — never silently dropped.</li>
+                </ul>
+                <p>Scored companies flow to a <strong>CSV export agent</strong> that maps each tier to a 0–100 match score, attaches the verified owner contact, and produces an import-ready file for the firm's CRM — with every score and every blank field explained, and nothing fabricated.</p>
+            </div>
+        </section>
+
+        <!-- End-to-end pipeline -->
+        <section class="content-section">
+            <h2 class="section-title">How It Fits Together</h2>
+            <p>End to end, a client thesis becomes an import-ready, scored target list — with a human review gate at every step, so no expensive action happens without approval.</p>
+            <div class="flow-grid">
+                <div class="flow-step">
+                    <h4>Client Thesis</h4>
+                    <p>Thesis Architect turns client material into a structured living thesis.</p>
+                    <span class="actor ai">AI Draft</span>
+                </div>
+                <div class="flow-step">
+                    <h4>Draft the Search</h4>
+                    <p>List Builder translates the thesis into a firmographic query, excluding already-owned companies.</p>
+                    <span class="actor ai">AI Draft</span>
+                </div>
+                <div class="flow-step">
+                    <h4>Pull Candidates</h4>
+                    <p>The human orchestrator runs the search and pulls firmographics + verified owner contacts.</p>
+                    <span class="actor human">Human-Run</span>
+                </div>
+                <div class="flow-step">
+                    <h4>Score the Fit</h4>
+                    <p>The Matcher tiers each company against the thesis with rationale.</p>
+                    <span class="actor ai">AI Draft</span>
+                </div>
+                <div class="flow-step">
+                    <h4>Export</h4>
+                    <p>0–100 match scores + owner contacts become an import-ready CRM file.</p>
+                    <span class="actor ai">AI Draft</span>
+                </div>
+                <div class="flow-step">
+                    <h4>Record &amp; Close the Loop</h4>
+                    <p>Every company lands in the Target Tracker and the exclusion list, so the next build skips it.</p>
+                    <span class="actor human">Human-Approved</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture decisions -->
+        <section class="content-section">
+            <h2 class="section-title">Architecture &amp; Design Decisions</h2>
+            <p>The interesting problems in this build were less about prompting and more about systems design:</p>
+            <ul>
+                <li><strong>Data backbone: local-first Markdown + git.</strong> Simple, versioned, and AI-native. The theses and tracker are human-readable and diff-able, with a clean path to migrate to a database once structured lookup or multi-user editing becomes the bottleneck — not before.</li>
+                <li><strong>Orchestrator-runs-tools, agents-draft.</strong> A real platform constraint shaped the whole architecture: the external data connectors run in the main session, not inside spawned sub-agents. So the pattern throughout is that agents <em>draft and format</em> while the orchestrator <em>executes</em> the live, billable calls — which also happens to keep a human in the loop before anything is spent.</li>
+                <li><strong>Separation of concerns per agent.</strong> Each agent has one job and a clear contract with the next. Research is separated from verification; firmographic filtering is separated from fit scoring; scoring is separated from formatting. Narrow agents are easier to trust, test, and improve.</li>
+                <li><strong>Never fabricate.</strong> If a contact email or data point isn't available, the field is left blank — never invented. Trust is the product.</li>
+            </ul>
+        </section>
+
+        <!-- Impact -->
+        <section class="content-section">
+            <h2 class="section-title">Impact</h2>
+            <p>In one worked campaign, the system turned a single client's add-on thesis into <strong>25 fully-scored acquisition targets</strong> — each tiered, rationale-attached, paired with a verified owner contact, and formatted for direct CRM import. What used to be a multi-day analyst grind became a reviewed, repeatable pipeline.</p>
+            <p>More importantly, the firm now compounds. Every company it touches is remembered, attributed, and automatically excluded from future searches — so each campaign starts smarter than the last.</p>
+            <div class="table-scroll">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Old Process</th>
+                            <th>This System</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>List basis</td>
+                            <td>One theme — usually just "industry"</td>
+                            <td>The client's full thesis, scored and tiered</td>
+                        </tr>
+                        <tr>
+                            <td>Already-owned</td>
+                            <td>Caught by memory, ad hoc</td>
+                            <td>Excluded automatically at search time</td>
+                        </tr>
+                        <tr>
+                            <td>Attribution</td>
+                            <td>Recalled from memory when a reply lands</td>
+                            <td>Recorded up front, instantly reverse-lookupable</td>
+                        </tr>
+                        <tr>
+                            <td>Contacts</td>
+                            <td>Manual hunt, deal by deal</td>
+                            <td>Owner name + verified email pulled in-flow</td>
+                        </tr>
+                        <tr>
+                            <td>Memory</td>
+                            <td>Every campaign starts from zero</td>
+                            <td>A compounding, versioned data asset</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tech stack -->
+        <section class="content-section">
+            <h2 class="section-title">Tech &amp; Approach</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Claude Code</span>
+                <span class="tech-tag">Multi-Agent Orchestration</span>
+                <span class="tech-tag">Custom Sub-Agents</span>
+                <span class="tech-tag">MCP Connectors</span>
+                <span class="tech-tag">Markdown + Git Data Layer</span>
+                <span class="tech-tag">Human-in-the-Loop Design</span>
+                <span class="tech-tag">Prompt / Context Engineering</span>
+                <span class="tech-tag">Schema-Driven Contracts</span>
+            </div>
+        </section>
+
+        <!-- Skills / What I Learned -->
+        <section class="content-section">
+            <h2 class="section-title">What This Project Sharpened</h2>
+            <ul>
+                <li><strong>AI systems architecture:</strong> designing a fleet of narrow, single-purpose agents with clean contracts between them — instead of one over-loaded generalist prompt.</li>
+                <li><strong>Data-first thinking:</strong> recognizing that the durable value is the accumulating data layer, and designing the agents to serve it rather than the other way around.</li>
+                <li><strong>Designing for trust:</strong> adversarial verification, tagged inferences, separated fit-vs-confidence, and a no-fabrication rule — because in M&amp;A a wrong "fact" is worse than a missing one.</li>
+                <li><strong>Human-in-the-loop product sense:</strong> placing review gates exactly where a costly or irreversible action happens, so automation accelerates judgment instead of replacing it.</li>
+                <li><strong>Working within platform constraints:</strong> turning a hard limitation (where tools can and can't run) into a cleaner orchestrator-and-workforce architecture.</li>
+            </ul>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="content-section">
+            <h2 class="section-title">Roadmap</h2>
+            <p>The core origination pipeline is built and producing real deliverables. What's next:</p>
+            <ul>
+                <li><strong>Campaign Writer:</strong> combine the scored list, sector research, and the client's angle into tailored outreach cadence copy.</li>
+                <li><strong>Response Triage:</strong> when a company replies, auto-look it up in the Target Tracker and hand the rep a one-page brief — who this was for, why, and what to know walking into the call.</li>
+                <li><strong>Structured store migration:</strong> move from Markdown to a queryable database once multi-user editing and structured lookup become the bottleneck.</li>
+            </ul>
+        </section>
+
+        <!-- Call to Action -->
+        <div class="contact-card-full">
+            <h3>Let's build something awesome!</h3>
+            <div class="social-links-large">
+                <a href="mailto:JamesJTeeling@gmail.com?subject=Job Opportunity - Let's Connect" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/jamesteeling" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/NostraJames" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="contact-info-centered">
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>JamesJTeeling@gmail.com</span>
+                </div>
+                <div class="contact-item-inline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Dallas, Texas, USA</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="project-footer">
+        <p>&copy; 2025 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+    </footer>
+
+</body>
+</html>

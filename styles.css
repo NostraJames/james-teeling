@@ -505,6 +505,14 @@ body {
     transform: scale(1.5);
 }
 
+.project-text-visual {
+    transition: var(--transition);
+}
+
+.project-card:hover .project-text-visual {
+    transform: scale(1.5);
+}
+
 .project-content {
     padding: 1.5rem;
 }
