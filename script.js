@@ -63,11 +63,12 @@ window.addEventListener('scroll', () => {
 // Animate skill bars on scroll
 const skillBars = document.querySelectorAll('.skill-progress');
 
-// Initialize all bars to 0% on page load
+// Initialize all bars to their starting width on page load
+// (defaults to 0%, but data-start lets a bar animate downward instead)
 skillBars.forEach(bar => {
     const targetWidth = bar.style.width;
     bar.setAttribute('data-width', targetWidth);  // Save target width
-    bar.style.width = '0%';                       // Start at 0%
+    bar.style.width = bar.dataset.start || '0%';  // Start at data-start, else 0%
 });
 
 const animateSkills = () => {
@@ -87,9 +88,9 @@ const animateSkills = () => {
                 }, 300);
             }
         } else {
-            // Bar is out of view - reset to 0%
+            // Bar is out of view - reset to its starting width
             bar.classList.remove('animated');
-            bar.style.width = '0%';
+            bar.style.width = bar.dataset.start || '0%';
         }
     });
 };
