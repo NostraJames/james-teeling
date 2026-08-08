@@ -759,3 +759,36 @@ body {
         height: 50px;
     }
 }
+/* Grouped skill bars (Product / AI / Technical) */
+.skill-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.skill-group-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skill-groups .skills-list {
+    gap: 1rem;
+}
+
+.skills-list--single {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Resume-summary lead paragraph in the profile card */
+.bio-lead {
+    color: var(--text-dark);
+    font-weight: 500;
+}
