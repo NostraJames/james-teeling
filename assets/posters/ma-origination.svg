@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<g transform="translate(800 450) scale(0.7) translate(-800 -450)">
+  <!-- M&A Origination: one living thesis -> a relay of narrow agents -> scored, tiered targets. -->
+  <!-- the thesis -->
+  <rect x="150" y="300" width="210" height="270" rx="34"
+        fill="#ccdbb2" fill-opacity=".12" stroke="#ccdbb2" stroke-opacity=".62" stroke-width="5"/>
+  <g fill="#ccdbb2" fill-opacity=".6">
+    <rect x="192" y="352" width="126" height="18" rx="9"/>
+    <rect x="192" y="396" width="96"  height="18" rx="9"/>
+    <rect x="192" y="440" width="118" height="18" rx="9"/>
+    <rect x="192" y="484" width="76"  height="18" rx="9"/>
+  </g>
+
+  <!-- the agent relay -->
+  <g>
+    <g fill="#f5ead8" fill-opacity=".07" stroke="#f5ead8" stroke-opacity=".45" stroke-width="5">
+      <rect x="450" y="368" width="132" height="132" rx="34"/>
+      <rect x="626" y="368" width="132" height="132" rx="34"/>
+      <rect x="802" y="368" width="132" height="132" rx="34"/>
+    </g>
+    <g stroke="#f5ead8" stroke-opacity=".38" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M366 434 h74"/><path d="M592 434 h24"/><path d="M768 434 h24"/>
+    </g>
+    <!-- the adversarial verify step carries the accent -->
+    <rect x="626" y="368" width="132" height="132" rx="34" fill="none" stroke="#f6a06b" stroke-opacity=".85" stroke-width="6"/>
+    <path d="M666 434 l18 20 32 -42" fill="none" stroke="#f6a06b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#f5ead8" fill-opacity=".4">
+      <circle cx="516" cy="434" r="17"/><circle cx="868" cy="434" r="17"/>
+    </g>
+  </g>
+
+  <!-- scored, tiered output -->
+  <g stroke="#f5ead8" stroke-opacity=".3" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M944 434 C 1000 434, 1010 300, 1070 300"/>
+    <path d="M944 434 h126"/>
+    <path d="M944 434 C 1000 434, 1010 568, 1070 568"/>
+  </g>
+  <g>
+    <g fill="#ffc6a5"><circle cx="1116" cy="300" r="24"/><circle cx="1186" cy="300" r="24"/><circle cx="1256" cy="300" r="24"/></g>
+    <g fill="#ffc6a5" fill-opacity=".5"><circle cx="1116" cy="434" r="20"/><circle cx="1186" cy="434" r="20"/></g>
+    <g fill="#f5ead8" fill-opacity=".26"><circle cx="1116" cy="568" r="17"/></g>
+    <g fill="#f5ead8" fill-opacity=".3">
+      <rect x="1310" y="286" width="150" height="16" rx="8"/>
+      <rect x="1310" y="426" width="106" height="16" rx="8"/>
+      <rect x="1310" y="560" width="70"  height="16" rx="8"/>
+    </g>
+  </g>
+
+  <g fill="#f5ead8" fill-opacity=".08">
+    <circle cx="60" cy="160" r="9"/><circle cx="1548" cy="150" r="9"/><circle cx="80" cy="760" r="9"/><circle cx="1520" cy="790" r="9"/>
+  </g>
+</g>
+</svg>

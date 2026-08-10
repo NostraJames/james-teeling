@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<g transform="translate(800 450) scale(0.74) translate(-800 -450)">
+  <!-- One Way of Working: five organisations, five tools -> one platform. -->
+  <g fill="#f5ead8" fill-opacity=".06" stroke="#f5ead8" stroke-opacity=".38" stroke-width="5">
+    <rect x="150" y="150" width="130" height="130" rx="30"/>
+    <rect x="150" y="386" width="130" height="130" rx="30"/>
+    <rect x="150" y="622" width="130" height="130" rx="30"/>
+    <rect x="330" y="268" width="130" height="130" rx="30"/>
+    <rect x="330" y="504" width="130" height="130" rx="30"/>
+  </g>
+  <g fill="#f5ead8" fill-opacity=".3">
+    <rect x="180" y="196" width="70" height="14" rx="7"/><rect x="180" y="228" width="46" height="14" rx="7"/>
+    <rect x="180" y="432" width="70" height="14" rx="7"/><rect x="180" y="464" width="46" height="14" rx="7"/>
+    <rect x="180" y="668" width="70" height="14" rx="7"/><rect x="180" y="700" width="46" height="14" rx="7"/>
+    <rect x="360" y="314" width="70" height="14" rx="7"/><rect x="360" y="346" width="46" height="14" rx="7"/>
+    <rect x="360" y="550" width="70" height="14" rx="7"/><rect x="360" y="582" width="46" height="14" rx="7"/>
+  </g>
+
+  <g stroke="#aebf92" stroke-opacity=".55" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M290 215 C 480 215, 560 380, 700 430"/>
+    <path d="M290 451 C 480 451, 560 451, 700 451"/>
+    <path d="M290 687 C 480 687, 560 520, 700 472"/>
+    <path d="M470 333 C 580 333, 620 400, 700 440"/>
+    <path d="M470 569 C 580 569, 620 500, 700 462"/>
+  </g>
+  <path d="M736 424 l40 27 -40 27" fill="none" stroke="#aebf92" stroke-opacity=".8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- the consolidated platform -->
+  <rect x="836" y="216" width="470" height="470" rx="64"
+        fill="#f6a06b" fill-opacity=".14" stroke="#f6a06b" stroke-opacity=".8" stroke-width="6"/>
+  <g fill="#ffc6a5" fill-opacity=".72">
+    <rect x="900" y="292" width="342" height="26" rx="13"/>
+    <rect x="900" y="358" width="270" height="26" rx="13"/>
+    <rect x="900" y="424" width="316" height="26" rx="13"/>
+    <rect x="900" y="490" width="230" height="26" rx="13"/>
+    <rect x="900" y="556" width="290" height="26" rx="13"/>
+  </g>
+
+  <g fill="#f5ead8" fill-opacity=".08">
+    <circle cx="1548" cy="180" r="9"/><circle cx="1490" cy="760" r="9"/><circle cx="70" cy="840" r="9"/>
+  </g>
+</g>
+</svg>

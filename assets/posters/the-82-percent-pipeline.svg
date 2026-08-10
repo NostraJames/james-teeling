@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <!-- The 82% Pipeline: every project queued behind one analyst; the automated path runs wide. -->
+  <!-- before: a long queue through a single neck -->
+  <g fill="#f5ead8" fill-opacity=".22">
+    <rect x="150" y="228" width="66" height="66" rx="18"/><rect x="232" y="228" width="66" height="66" rx="18"/>
+    <rect x="314" y="228" width="66" height="66" rx="18"/><rect x="396" y="228" width="66" height="66" rx="18"/>
+    <rect x="478" y="228" width="66" height="66" rx="18"/><rect x="560" y="228" width="66" height="66" rx="18"/>
+    <rect x="642" y="228" width="66" height="66" rx="18"/><rect x="724" y="228" width="66" height="66" rx="18"/>
+  </g>
+  <path d="M812 261 h150" stroke="#f5ead8" stroke-opacity=".24" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- the bottleneck -->
+  <g>
+    <circle cx="1020" cy="261" r="52" fill="#f5ead8" fill-opacity=".1" stroke="#f5ead8" stroke-opacity=".42" stroke-width="5"/>
+    <path d="M996 237 l48 48 M1044 237 l-48 48" stroke="#f5ead8" stroke-opacity=".42" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <path d="M1084 261 h120" stroke="#f5ead8" stroke-opacity=".18" stroke-width="5" stroke-dasharray="14 16" stroke-linecap="round" fill="none"/>
+  <rect x="1230" y="228" width="66" height="66" rx="18" fill="#f5ead8" fill-opacity=".14"/>
+
+  <!-- after: parallel channels, no neck -->
+  <g stroke="#f6a06b" stroke-width="12" stroke-linecap="round" fill="none">
+    <path d="M182 508 H1300" stroke-opacity=".9"/>
+    <path d="M182 618 H1300" stroke-opacity=".62"/>
+    <path d="M182 728 H1300" stroke-opacity=".36"/>
+  </g>
+  <g fill="#ffc6a5">
+    <circle cx="1300" cy="508" r="26"/><circle cx="1300" cy="618" r="20"/><circle cx="1300" cy="728" r="16"/>
+  </g>
+  <g fill="#201e1d" fill-opacity=".55">
+    <circle cx="360" cy="508" r="9"/><circle cx="700" cy="508" r="9"/><circle cx="1040" cy="508" r="9"/>
+    <circle cx="470" cy="618" r="9"/><circle cx="880" cy="618" r="9"/>
+  </g>
+
+  <!-- the gap between the two paths -->
+  <path d="M150 380 H1300" stroke="#f5ead8" stroke-opacity=".12" stroke-width="3" stroke-dasharray="10 14" fill="none"/>
+
+  <g fill="#f5ead8" fill-opacity=".08">
+    <circle cx="1548" cy="170" r="9"/><circle cx="1500" cy="820" r="9"/><circle cx="70" cy="820" r="9"/>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <!-- PO Copilot: brain dump -> gated draft -> posted work item.
+       Core composition lives in the centre 900px so the portrait poster crop keeps it. -->
+  <g fill="none" stroke="#f5ead8" stroke-linecap="round">
+    <!-- retrieval fan: business rules found on the way in -->
+    <g stroke="#ccdbb2" stroke-opacity=".42" stroke-width="5" stroke-dasharray="18 16">
+      <path d="M120 300 C 300 300, 380 400, 540 440"/>
+      <path d="M100 450 C 300 450, 400 450, 540 452"/>
+      <path d="M120 610 C 300 610, 380 510, 540 468"/>
+    </g>
+    <g fill="#ccdbb2" fill-opacity=".5" stroke="none">
+      <circle cx="112" cy="300" r="15"/><circle cx="92" cy="450" r="15"/><circle cx="112" cy="610" r="15"/>
+    </g>
+  </g>
+
+  <!-- the draft -->
+  <rect x="556" y="146" width="492" height="600" rx="52"
+        fill="#f5ead8" fill-opacity=".055" stroke="#f5ead8" stroke-opacity=".5" stroke-width="5"/>
+
+  <!-- criteria rows; the first three are gated and checked -->
+  <g>
+    <g fill="#ffc6a5" fill-opacity=".85">
+      <circle cx="638" cy="252" r="22"/><circle cx="638" cy="360" r="22"/><circle cx="638" cy="468" r="22"/>
+    </g>
+    <g fill="none" stroke="#402310" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M628 252 l7 8 14-17"/><path d="M628 360 l7 8 14-17"/><path d="M628 468 l7 8 14-17"/>
+    </g>
+    <g fill="#f5ead8">
+      <rect x="686" y="238" width="290" height="28" rx="14" fill-opacity=".34"/>
+      <rect x="686" y="346" width="238" height="28" rx="14" fill-opacity=".34"/>
+      <rect x="686" y="454" width="266" height="28" rx="14" fill-opacity=".34"/>
+      <rect x="612" y="562" width="364" height="28" rx="14" fill-opacity=".14"/>
+      <rect x="612" y="646" width="290" height="28" rx="14" fill-opacity=".14"/>
+    </g>
+    <g fill="#f5ead8" fill-opacity=".16">
+      <circle cx="638" cy="576" r="22"/><circle cx="638" cy="660" r="22"/>
+    </g>
+  </g>
+
+  <!-- the gate + the posted work item -->
+  <path d="M1068 446 h150" stroke="#f6a06b" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M1196 420 l32 26 -32 26" stroke="#f6a06b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="1252" y="336" width="236" height="220" rx="40" fill="#f6a06b" fill-opacity=".22" stroke="#f6a06b" stroke-opacity=".7" stroke-width="5"/>
+  <g fill="#ffc6a5" fill-opacity=".75">
+    <rect x="1300" y="392" width="140" height="22" rx="11"/>
+    <rect x="1300" y="440" width="104" height="22" rx="11"/>
+    <rect x="1300" y="488" width="122" height="22" rx="11"/>
+  </g>
+
+  <!-- faint flank texture so the wide hero crop isn't empty -->
+  <g fill="#f5ead8" fill-opacity=".08">
+    <circle cx="1560" cy="150" r="9"/><circle cx="1480" cy="712" r="9"/><circle cx="60" cy="150" r="9"/>
+    <circle cx="180" cy="800" r="9"/><circle cx="1560" cy="470" r="9"/><circle cx="40" cy="740" r="9"/>
+  </g>
+</svg>
