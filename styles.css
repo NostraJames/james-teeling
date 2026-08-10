@@ -423,6 +423,8 @@ button { font-family: var(--body); }
 .upnext__poster span {
   font-family: var(--display); font-size: 76px; line-height: .8; color: #ffffff2b; margin: 0 -6px -10px 0;
 }
+/* at 84x104 a diagram is texture, not detail — pull the initial back so it doesn't fight it */
+.upnext__poster.art-line span { color: #ffffff1a; }
 .upnext__title { font-family: var(--display); font-size: 26px; line-height: 1.08; }
 .upnext__blurb { font-size: 14px; color: #f5ead89e; margin-top: 6px; max-width: 520px; }
 

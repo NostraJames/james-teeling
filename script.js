@@ -282,8 +282,9 @@
 
     var i = PROJECTS.indexOf(p);
     var nx = PROJECTS[(i + 1) % PROJECTS.length];
-    $('#upnextPoster').style.background = nx.bg;   /* gradient only — too small for art */
-    $('#upnextGlyph').textContent = nx.initial;
+    $('#upnextPoster').style.backgroundImage = artBg(nx);
+    $('#upnextPoster').className = 'upnext__poster art-' + (nx.artType || 'none');
+    $('#upnextGlyph').textContent = nx.artType === 'photo' ? '' : nx.initial;
     $('#upnextTitle').textContent = nx.title;
     $('#upnextBlurb').textContent = nx.blurb;
     upnext.setAttribute('data-id', nx.id);
