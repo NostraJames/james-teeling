@@ -143,10 +143,14 @@ button { font-family: var(--body); }
 .btn-accent:hover { background: var(--accent-hover); color: var(--ground); }
 
 .avatar {
-  width: 36px; height: 36px; border-radius: 999px; flex: none;
+  width: 36px; height: 36px; border-radius: 999px; flex: none; overflow: hidden;
   background: linear-gradient(150deg, var(--accent), #8fa073);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--display); font-size: 16px; color: var(--ground);
+}
+.avatar img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 66% 40%;
+  filter: saturate(.6) contrast(.85) brightness(1.1);
 }
 
 .nav__toggle { display: none; }
@@ -472,6 +476,7 @@ button { font-family: var(--body); }
   background: linear-gradient(150deg, var(--accent), #8fa073);
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #201e1dc4;
+  box-shadow: 0 0 0 1px var(--hairline-strong);
 }
 .about__photo img {
   width: 100%; height: 100%; object-fit: cover;

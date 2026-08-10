@@ -110,16 +110,43 @@
 
   heroRead.addEventListener('click', function () { openModal(heroRead.getAttribute('data-id')); });
 
-  ['mouseenter', 'focusin'].forEach(function (ev) {
-    heroEl.addEventListener(ev, function () { heroEl.classList.add('is-paused'); stopHero(); });
-  });
-  ['mouseleave', 'focusout'].forEach(function (ev) {
-    heroEl.addEventListener(ev, function () {
-      if (heroEl.contains(document.activeElement)) return;
-      heroEl.classList.remove('is-paused');
+  /* Rotation pauses only while the hero is BOTH on screen and hovered/focused.
+     Tracking hover alone strands the timer: scrolling the hero out of view
+     without moving the pointer never fires mouseleave, so it stayed paused for
+     good — and a focused tick did the same thing. */
+  var heroHover = false, heroFocus = false, heroPaused = null;
+
+  function heroOnScreen() {
+    var r = heroEl.getBoundingClientRect();
+    return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+  }
+
+  function syncHero() {
+    var visible = heroOnScreen();
+    if (!visible) heroHover = false;      /* no pointer events arrive off screen */
+    var paused = !!state.currentId || (visible && (heroHover || heroFocus));
+    if (paused === heroPaused) return;
+    heroPaused = paused;
+    heroEl.classList.toggle('is-paused', paused);
+    if (paused) {
+      stopHero();
+    } else {
+      updateTicks();   /* restart the fill so the bar and the interval agree */
       startHero();
-    });
+    }
+  }
+
+  heroEl.addEventListener('pointerenter', function () { heroHover = true;  syncHero(); });
+  heroEl.addEventListener('pointerleave', function () { heroHover = false; syncHero(); });
+  heroEl.addEventListener('focusin',  function () { heroFocus = true;  syncHero(); });
+  heroEl.addEventListener('focusout', function () {
+    heroFocus = heroEl.contains(document.activeElement);
+    syncHero();
   });
+
+  /* Scrolling the hero out of view never fires pointerleave if the pointer
+     doesn't move, which used to strand the rotation paused for good. */
+  window.addEventListener('scroll', syncHero, { passive: true });
 
   /* ---------------------------------------------------------------- shelves */
 
@@ -299,7 +326,8 @@
     modal.hidden = false;
     document.body.classList.add('modal-open');
     modal.scrollTop = 0;
-    stopHero();
+    syncHero();   /* not stopHero(): the pause state must stay in sync, or
+                     closing the modal won't restart the rotation */
     history.replaceState(null, '', '#/work/' + id);
     $('#modalClose').focus();
   }
@@ -311,7 +339,7 @@
     document.body.classList.remove('modal-open');
     history.replaceState(null, '', location.pathname + location.search);
     if (lastFocused && lastFocused.focus) lastFocused.focus();
-    if (!heroEl.matches(':hover')) startHero();
+    syncHero();
   }
 
   $('#modalClose').addEventListener('click', closeModal);
