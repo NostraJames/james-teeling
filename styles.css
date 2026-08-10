@@ -241,6 +241,7 @@ button { font-family: var(--body); }
 }
 .scrub:hover { background: #f5ead826; }
 .scrub[disabled] { opacity: .28; cursor: default; }
+.scrub[hidden] { display: none; }
 
 .track {
   display: flex; gap: var(--shelf-gap); padding: 14px var(--gutter) 22px;

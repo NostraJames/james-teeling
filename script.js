@@ -51,16 +51,30 @@
     heroBlurb.textContent = p.blurb;
     heroMetric.textContent = p.metric;
     heroRead.setAttribute('data-id', p.id);
-    renderTicks();
+    updateTicks();
   }
 
-  function renderTicks() {
+  function buildTicks() {
     heroTicks.innerHTML = featured.map(function (p, i) {
-      var cls = i === state.featIdx ? 'is-active' : (i < state.featIdx ? 'is-done' : '');
-      return '<button type="button" class="tick ' + cls + '" data-idx="' + i + '" role="tab"' +
-             ' aria-selected="' + (i === state.featIdx) + '"' +
-             ' aria-label="Show ' + esc(p.title) + '"><span class="tick__fill"></span></button>';
+      return '<button type="button" class="tick" data-idx="' + i + '" role="tab"' +
+             ' aria-selected="false" aria-label="Show ' + esc(p.title) + '">' +
+             '<span class="tick__fill"></span></button>';
     }).join('');
+  }
+
+  /* Mutate the existing tick nodes rather than re-writing them: re-rendering
+     would drop keyboard focus off whichever tick the user just activated. */
+  function updateTicks() {
+    $$('.tick', heroTicks).forEach(function (btn, i) {
+      btn.classList.remove('is-active');
+      btn.classList.toggle('is-done', i < state.featIdx);
+      btn.setAttribute('aria-selected', String(i === state.featIdx));
+    });
+    var active = heroTicks.children[state.featIdx];
+    if (active) {
+      void active.offsetWidth;          /* force reflow so `fill` restarts */
+      active.classList.add('is-active');
+    }
   }
 
   function startHero() {
@@ -158,6 +172,11 @@
     if (!head) return;
     var btns = $$('.scrub', head);
     var max = track.scrollWidth - track.clientWidth;
+    var overflows = max > 1;
+    /* A row that fits has nothing to scrub — hide the arrows rather than
+       showing a permanently dead pair. */
+    btns.forEach(function (b) { b.hidden = !overflows; });
+    if (!overflows) return;
     if (btns[0]) btns[0].disabled = track.scrollLeft <= 1;
     if (btns[1]) btns[1].disabled = track.scrollLeft >= max - 1;
   }
@@ -166,7 +185,9 @@
     var btn = e.target.closest('.filter');
     if (!btn) return;
     state.filter = btn.getAttribute('data-cat');
-    renderFilters();
+    $$('.filter', filtersEl).forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-cat') === state.filter));
+    });
     renderShelves();
   });
 
@@ -377,8 +398,9 @@
 
   /* ------------------------------------------------------------------- boot */
 
-  renderHero();
   renderFilters();
+  buildTicks();
+  renderHero();
   renderShelves();
   renderLists();
   animateSkills();
