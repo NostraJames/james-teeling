@@ -25,6 +25,18 @@
     return '<svg width="' + size + '" height="' + size + '" aria-hidden="true"><use href="#icon-' + name + '"/></svg>';
   }
 
+
+  /* Poster art. Line art (SVG / transparent PNG) sits ON TOP of the project
+     gradient; photographs sit UNDER a tinted version of it. Projects with no
+     art fall back to the gradient alone. */
+  function artBg(p) {
+    if (!p.art) return p.bg;
+    /* single quotes inside url(): these strings are also injected into a
+       double-quoted style attribute on the poster markup */
+    if (p.artType === 'photo') return (p.overlay || p.bg) + ", url('" + p.art + "')";
+    return "url('" + p.art + "'), " + p.bg;
+  }
+
   function esc(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
@@ -44,8 +56,9 @@
   function renderHero() {
     var p = featured[state.featIdx];
     if (!p) return;
-    heroArt.style.background = p.bg;
-    heroGlyph.textContent = p.initial;
+    heroArt.style.backgroundImage = artBg(p);
+    heroArt.className = 'hero__art art-' + (p.artType || 'none');
+    heroGlyph.textContent = p.artType === 'photo' ? '' : p.initial;
     heroKicker.textContent = p.kicker;
     heroTitle.textContent = p.title;
     heroBlurb.textContent = p.blurb;
@@ -124,8 +137,10 @@
   function cardMarkup(p) {
     return '' +
       '<button type="button" class="card" data-id="' + p.id + '" aria-label="Open case study: ' + esc(p.title) + '">' +
-        '<span class="poster" style="background:' + p.bg + '">' +
-          '<span class="poster__glyph" aria-hidden="true">' + esc(p.initial) + '</span>' +
+        '<span class="poster" style="background-image:' + artBg(p) + '">' +
+          (p.artType === 'photo' ? '' :
+            '<span class="poster__glyph' + (p.art ? ' is-behind-art' : '') + '" aria-hidden="true">' +
+            esc(p.initial) + '</span>') +
           '<span class="poster__badge">' + esc(p.badge) + '</span>' +
           '<span class="poster__foot">' +
             '<span class="poster__title">' + esc(p.title) + '</span>' +
@@ -231,8 +246,9 @@
   var upnext   = $('#upnext');
 
   function renderModal(p) {
-    mArt.style.background = p.bg;
-    mGlyph.textContent = p.initial;
+    mArt.style.backgroundImage = artBg(p);
+    mArt.className = 'modal__art art-' + (p.artType || 'none');
+    mGlyph.textContent = p.artType === 'photo' ? '' : p.initial;
     mKicker.textContent = p.kicker;
     mTitle.textContent = p.title;
 
@@ -266,7 +282,7 @@
 
     var i = PROJECTS.indexOf(p);
     var nx = PROJECTS[(i + 1) % PROJECTS.length];
-    $('#upnextPoster').style.background = nx.bg;
+    $('#upnextPoster').style.background = nx.bg;   /* gradient only — too small for art */
     $('#upnextGlyph').textContent = nx.initial;
     $('#upnextTitle').textContent = nx.title;
     $('#upnextBlurb').textContent = nx.blurb;

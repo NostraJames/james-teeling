@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <!-- The Opt-In Rebuild: 400K -> 10.7M. A floor that barely moves, then a step change. -->
+  <defs>
+    <linearGradient id="oiFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6a06b" stop-opacity=".46"/>
+      <stop offset="1" stop-color="#f6a06b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- gridlines -->
+  <g stroke="#f5ead8" stroke-opacity=".11" stroke-width="3">
+    <path d="M60 720 H1540"/><path d="M60 560 H1540"/><path d="M60 400 H1540"/><path d="M60 240 H1540"/>
+  </g>
+
+  <!-- the curve + its area -->
+  <path d="M300 700 C 620 698, 760 690, 880 600 C 980 524, 1010 300, 1180 200 L1180 720 L300 720 Z" fill="url(#oiFill)"/>
+  <path d="M300 700 C 620 698, 760 690, 880 600 C 980 524, 1010 300, 1180 200"
+        fill="none" stroke="#f6a06b" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- before / after markers -->
+  <circle cx="300" cy="700" r="16" fill="#f5ead8" fill-opacity=".55"/>
+  <circle cx="1180" cy="200" r="30" fill="#ffc6a5"/>
+  <circle cx="1180" cy="200" r="58" fill="none" stroke="#ffc6a5" stroke-opacity=".45" stroke-width="6"/>
+
+  <!-- audience mass: a thin row of dots before, a dense block after -->
+  <g fill="#f5ead8" fill-opacity=".3">
+    <circle cx="250" cy="770" r="8"/><circle cx="286" cy="770" r="8"/><circle cx="322" cy="770" r="8"/>
+  </g>
+  <g fill="#aebf92" fill-opacity=".55">
+    <circle cx="1060" cy="770" r="8"/><circle cx="1096" cy="770" r="8"/><circle cx="1132" cy="770" r="8"/>
+    <circle cx="1168" cy="770" r="8"/><circle cx="1204" cy="770" r="8"/><circle cx="1240" cy="770" r="8"/>
+    <circle cx="1078" cy="812" r="8"/><circle cx="1114" cy="812" r="8"/><circle cx="1150" cy="812" r="8"/>
+    <circle cx="1186" cy="812" r="8"/><circle cx="1222" cy="812" r="8"/>
+  </g>
+
+  <g fill="#f5ead8" fill-opacity=".08">
+    <circle cx="1560" cy="140" r="9"/><circle cx="60" cy="180" r="9"/><circle cx="1520" cy="820" r="9"/>
+  </g>
+</svg>

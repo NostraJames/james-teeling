@@ -15,6 +15,7 @@ const PROJECTS = [
   /* ---------------------------------------------------------------- AI & Agentic */
   {
     id: 'po-copilot',
+    art: './assets/posters/po-copilot.svg', artType: 'line',
     title: 'PO Copilot',
     initial: 'P',
     kicker: 'The blank work item, answered',
@@ -46,10 +47,11 @@ const PROJECTS = [
   },
   {
     id: 'ma-origination',
+    art: './assets/posters/ma-origination.svg', artType: 'line',
     title: 'M&A Origination',
     initial: 'M',
     kicker: 'A multi-agent deal-sourcing workforce',
-    badge: 'In build',
+    badge: 'Shipped',
     cat: 'ai',
     bg: 'linear-gradient(155deg,#645c50,#2e2b25)',
     metric: '25 scored targets from one thesis',
@@ -60,7 +62,7 @@ const PROJECTS = [
       { value: '4', label: 'agent relay: research → verify → edit → publish' },
       { value: '0', label: 'fabricated contacts, by design' }
     ],
-    gist: 'Boutique M&A origination runs on human memory — every campaign starts from a blank page. I’m building a coordinated team of narrow AI agents on top of a durable data layer, so the firm’s knowledge compounds instead of evaporating. AI drafts; humans decide.',
+    gist: 'Boutique M&A origination ran on human memory — every campaign started from a blank page. I designed and built a coordinated team of narrow AI agents on top of a durable data layer, and it is live and in use at the firm. The knowledge compounds now instead of evaporating; AI drafts, humans decide.',
     sections: [
       { kicker: 'the bet', head: 'The agents aren’t the asset. The memory is.',
         body: 'Two living stores are the spine: one investment thesis per private-equity client, and a tracker of every company the firm has ever touched — which campaign, which client, why, and what happened. Tooling changes; the theses and the tracker come with the firm.' },
@@ -76,6 +78,7 @@ const PROJECTS = [
   },
   {
     id: 'voice-of-customer',
+    art: './assets/posters/voice-of-customer.svg', artType: 'line',
     title: 'Voice of Customer',
     initial: 'V',
     kicker: 'Thousands of comments, ranked by demand',
@@ -104,6 +107,7 @@ const PROJECTS = [
   /* -------------------------------------------------------------- Shipped at scale */
   {
     id: 'opt-in-rebuild',
+    art: './assets/posters/opt-in-rebuild.svg', artType: 'line',
     title: 'The Opt-In Rebuild',
     initial: 'O',
     kicker: 'A value exchange, not a checkbox',
@@ -132,6 +136,7 @@ const PROJECTS = [
   },
   {
     id: 'one-way-of-working',
+    art: './assets/posters/one-way-of-working.svg', artType: 'line',
     title: 'One Way of Working',
     initial: 'W',
     kicker: 'Five orgs, one work-management platform',
@@ -160,6 +165,7 @@ const PROJECTS = [
   },
   {
     id: 'contract-visibility',
+    art: './assets/posters/contract-visibility.svg', artType: 'line',
     title: 'Contract Visibility',
     initial: 'C',
     kicker: 'Vendor management, out of the inbox',
@@ -186,6 +192,7 @@ const PROJECTS = [
   },
   {
     id: 'the-82-percent-pipeline',
+    art: './assets/posters/the-82-percent-pipeline.svg', artType: 'line',
     title: 'The 82% Pipeline',
     initial: 'D',
     kicker: 'Analysts unblocked, projects unstuck',
@@ -216,6 +223,8 @@ const PROJECTS = [
   /* ------------------------------------------------------------- Built by hand */
   {
     id: 'full-squish',
+    art: './assets/posters/full-squish.jpg', artType: 'photo',
+    overlay: 'linear-gradient(155deg,#7281574d,#272e1bc4)',
     title: 'Full Squish',
     initial: 'F',
     kicker: 'Suspension setup, remembered',
@@ -247,6 +256,7 @@ const PROJECTS = [
   },
   {
     id: 'bike-fit-calculator',
+    art: './assets/posters/bike-fit-calculator.png', artType: 'line',
     title: 'Bike Fit Calculator',
     initial: 'B',
     kicker: 'Medium doesn’t mean medium any more',
@@ -278,6 +288,8 @@ const PROJECTS = [
   },
   {
     id: 'alpha-vidiris',
+    art: './assets/posters/alpha-vidiris.jpg', artType: 'photo',
+    overlay: 'linear-gradient(155deg,#56633f47,#201e1dbd)',
     title: 'Alpha Vidiris',
     initial: 'A',
     kicker: 'A space 4X, designed from zero',
@@ -307,6 +319,8 @@ const PROJECTS = [
   },
   {
     id: 'sonos-cooler',
+    art: './assets/posters/sonos-cooler.jpg', artType: 'photo',
+    overlay: 'linear-gradient(155deg,#4742385c,#201e1dab)',
     title: 'Sonos Cooler',
     initial: 'S',
     kicker: 'A wind tunnel for a hot closet',
