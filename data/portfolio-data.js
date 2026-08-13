@@ -367,7 +367,7 @@ const TIMELINE = [
     detail: 'American Airlines. Grew opt-ins 400K → 10.7M, and built the agentic PM workflow the team now runs on. Previously Program Manager, Delivery Transformation.' },
   { when: '2020 — 2021',  what: 'Project Manager, Vendor Management',
     detail: 'Cotality, formerly CoreLogic. Automated contract visibility and got the org to keep the data clean.' },
-  { when: '2011 — 2019',  what: 'Principal Data Engineer',
+  { when: '2011 — 2019',  what: 'Senior Data Analyst',
     detail: 'Affirmity, formerly Peoplefluent. Cut project turnaround 82% by automating the pipeline everything queued behind.' },
   { when: '2006 — 2011',  what: 'BS Economics, University of North Texas',
     detail: 'Minor in Mathematics. Game theory and econometrics — still how I think about a roadmap.' }
