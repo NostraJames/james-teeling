@@ -15,7 +15,7 @@ index.html               the catalogue page (nav, hero, shelves, modal, toolbelt
 styles.css               design tokens + every component
 script.js                hero rotation, filters, shelves, modal, scroll-spy
 data/portfolio-data.js   THE CONTENT MODEL — projects, skills, tools, timeline, facts
-projects/                long-form case studies (light theme) + base-styles.css
+projects/                long-form case studies (same dark theatre theme) + case-study.css
 assets/photos/           project imagery used by the case studies
 files/                   resume PDF
 ```

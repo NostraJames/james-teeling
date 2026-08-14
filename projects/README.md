@@ -6,7 +6,9 @@ This folder contains individual case study pages for each portfolio project. The
 
 ```
 projects/
-├── project-styles.css          # Shared styles for all project pages
+├── case-study.css              # Shared styles for all project pages (dark theatre theme)
+├── po-copilot.html            # PO Copilot case study
+├── ai-origination-system.html # AI-Assisted M&A Origination System case study
 ├── fullsquish.html            # Full Squish app case study
 ├── alpha-vidiris.html         # Alpha Vidiris board game case study
 ├── sonos-aircooler.html       # Sonos Aircooler engineering case study
@@ -101,12 +103,12 @@ Update the stat cards with real numbers:
 
 ### Customizing Styles
 
-To customize the look of your case studies, edit `project-styles.css`. Common customizations:
+To customize the look of your case studies, edit `case-study.css` (structural/content classes) or `../styles.css` (design tokens shared with the rest of the site — colors, fonts, radii). Common customizations:
 
-- Change colors in the `:root` CSS variables
-- Adjust spacing by modifying padding/margin values
+- Change colors by editing the `:root` CSS variables in `../styles.css`
+- Adjust spacing by modifying padding/margin values in `case-study.css`
 - Change font sizes for different sections
-- Modify the hero gradient
+- Swap the hero art/gradient (pulled from each project's entry in `../data/portfolio-data.js`)
 
 ## Tips for Strong Case Studies
 

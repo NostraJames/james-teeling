@@ -5,45 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI-Assisted M&A Origination System - A multi-agent AI workflow case study by James Teeling">
     <title>AI Origination System - James Teeling</title>
-    <link rel="stylesheet" href="base-styles.css">
-    <link rel="stylesheet" href="project-styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css">
     <style>
-        /* Case-study-scoped visuals (no external image needed) */
-        .origination-hero {
-            background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
-            background-size: cover;
-            background-position: center;
-        }
-
         /* Principle banner */
         .principle-banner {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--sage-tint);
+            border: 1px solid var(--sage-border);
+            border-radius: 20px;
             padding: 1.75rem 2rem;
             margin: 2rem 0;
             text-align: center;
         }
         .principle-banner p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--ink);
             margin: 0;
             line-height: 1.6;
         }
 
         /* Workflow cards */
         .workflow-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--primary-color);
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--accent);
+            border-radius: 20px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: var(--shadow-sm);
         }
         .workflow-card .workflow-eyebrow {
             display: inline-block;
@@ -51,15 +40,17 @@
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--primary-color);
+            color: var(--accent-hover);
             margin-bottom: 0.5rem;
         }
         .workflow-card h3 {
+            font-family: var(--display);
+            font-weight: 400;
             font-size: 1.4rem;
-            color: var(--text-dark);
+            color: var(--ink);
             margin-bottom: 0.75rem;
         }
-        .workflow-card p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+        .workflow-card p { color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
 
         /* Agent chain (research pipeline) */
         .agent-chain {
@@ -70,15 +61,15 @@
             margin: 1.25rem 0 0.5rem;
         }
         .agent-node {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
+            background: #f5ead814;
+            border: 1px solid var(--hairline);
             border-radius: 8px;
             padding: 0.6rem 1rem;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--text-dark);
+            color: var(--ink);
         }
-        .agent-arrow { color: var(--primary-color); font-weight: 700; }
+        .agent-arrow { color: var(--accent-hover); font-weight: 700; }
 
         /* Pipeline flow (numbered steps) */
         .flow-grid {
@@ -89,12 +80,11 @@
             counter-reset: flow;
         }
         .flow-step {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 18px;
             padding: 1.5rem;
             position: relative;
-            box-shadow: var(--shadow-sm);
         }
         .flow-step::before {
             counter-increment: flow;
@@ -105,13 +95,13 @@
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, var(--accent), var(--sage));
+            color: var(--ground);
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
-        .flow-step h4 { color: var(--text-dark); font-size: 1.05rem; margin-bottom: 0.4rem; }
-        .flow-step p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+        .flow-step h4 { color: var(--ink); font-size: 1.05rem; margin-bottom: 0.4rem; }
+        .flow-step p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; margin: 0; }
         .flow-step .actor {
             display: inline-block;
             font-size: 0.72rem;
@@ -122,8 +112,8 @@
             border-radius: 20px;
             margin-top: 0.75rem;
         }
-        .actor.ai { background: #D6EAFF; color: #1c4f8a; }
-        .actor.human { background: #E6F7EC; color: #1d6b3c; }
+        .actor.ai { background: #f5ead814; color: var(--ink-soft); border: 1px solid var(--hairline-strong); }
+        .actor.human { background: var(--sage-tint); color: var(--sage); border: 1px solid var(--sage-border); }
 
         /* Comparison table */
         .compare-table {
@@ -132,22 +122,22 @@
             margin: 2rem 0;
             font-size: 0.98rem;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 16px;
+            background: var(--surface);
         }
         .compare-table th, .compare-table td {
             text-align: left;
             padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--hairline);
             vertical-align: top;
         }
         .compare-table thead th {
-            background: var(--bg-light);
-            color: var(--text-dark);
+            background: #f5ead80a;
+            color: var(--ink);
             font-weight: 700;
         }
-        .compare-table tbody td { color: var(--text-light); }
-        .compare-table td:first-child { font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+        .compare-table tbody td { color: var(--ink-soft); }
+        .compare-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
         .table-scroll { overflow-x: auto; }
 
         @media (max-width: 768px) {
@@ -157,37 +147,57 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="project-nav">
-        <div class="nav-content">
-            <a href="../index.html#projects" class="back-button">
-                ← Back to Portfolio
-            </a>
-            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
-        </div>
-    </nav>
+    <header class="nav">
+      <div class="nav__left">
+        <a class="wordmark" href="../index.html#top">JAMES TEELING</a>
+        <nav class="nav__links" id="navLinks" aria-label="Sections">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#toolbelt">Toolbelt</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <span class="pill-available"><span class="dot"></span>Open to Product Manager roles</span>
+        <a class="btn-accent" href="../index.html#contact">Get in touch</a>
+        <span class="avatar" aria-hidden="true"><img src="../assets/photos/portrait/james-teeling.jpg" alt=""></span>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="project-hero origination-hero">
-        <div class="hero-content">
-            <span class="project-category">AI Systems Design · Multi-Agent Architecture</span>
-            <h1>AI-Assisted M&A Origination System</h1>
-            <p class="subtitle">A multi-agent AI workflow that turns each private-equity client's investment thesis into a tailored, scored list of acquisition targets — and remembers every company it touches.</p>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">AI Systems Designer / Architect</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">2026 — shipped, in use</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Domain</span>
-                    <span class="meta-value">M&A / Private Equity</span>
-                </div>
-            </div>
+    <section class="cs-hero">
+        <div class="modal__art art-line" style="background-image:url('../assets/posters/ma-origination.svg'), linear-gradient(155deg,#645c50,#2e2b25)"></div>
+        <div class="cs-hero__scrim"></div>
+        <div class="cs-hero__fade"></div>
+        <div class="modal__glyph" aria-hidden="true">M</div>
+        <div class="cs-hero__content">
+            <p class="modal__kicker">A multi-agent deal-sourcing workforce</p>
+            <h1 class="modal__title">AI-Assisted M&amp;A Origination System</h1>
+            <p class="hero__blurb">A multi-agent AI workflow that turns each private-equity client's investment thesis into a tailored, scored list of acquisition targets — and remembers every company it touches.</p>
+            <p class="cs-hero__meta">
+                <span><strong>Role</strong> — AI Systems Designer / Architect</span>
+                <span><strong>Timeline</strong> — 2026, shipped, in use</span>
+                <span><strong>Domain</strong> — M&amp;A / Private Equity</span>
+            </p>
         </div>
     </section>
+    <div class="cs-below-hero">
+        <div class="chips">
+            <span class="chip">Multi-Agent Orchestration</span>
+            <span class="chip">Claude Code</span>
+            <span class="chip">MCP</span>
+            <span class="chip">Human-in-the-Loop</span>
+            <span class="chip">Markdown + Git</span>
+        </div>
+        <div class="metric-tiles">
+            <div class="tile"><div class="tile__value">25</div><div class="tile__label">fully-scored targets in one campaign</div></div>
+            <div class="tile"><div class="tile__value">4</div><div class="tile__label">agent relay: research → verify → edit → publish</div></div>
+            <div class="tile"><div class="tile__value">0</div><div class="tile__label">fabricated contacts, by design</div></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="project-content">
@@ -466,9 +476,21 @@
 
     <!-- Footer -->
     <footer class="project-footer">
-        <p>&copy; 2025 James Teeling. All rights reserved.</p>
-        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+        <p>&copy; 2026 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html">Back to Portfolio</a></p>
     </footer>
+
+    <script>
+        (function () {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (!navToggle || !navLinks) return;
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', String(open));
+            });
+        })();
+    </script>
 
 </body>
 </html>

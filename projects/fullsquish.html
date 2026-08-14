@@ -5,45 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Full Squish - Mountain Bike Suspension Tracking App Case Study">
     <title>Full Squish - James Teeling</title>
-    <link rel="stylesheet" href="base-styles.css">
-    <link rel="stylesheet" href="project-styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="project-nav">
-        <div class="nav-content">
-            <a href="../index.html#projects" class="back-button">
-                ← Back to Portfolio
-            </a>
-            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
-        </div>
-    </nav>
+    <header class="nav">
+      <div class="nav__left">
+        <a class="wordmark" href="../index.html#top">JAMES TEELING</a>
+        <nav class="nav__links" id="navLinks" aria-label="Sections">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#toolbelt">Toolbelt</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <span class="pill-available"><span class="dot"></span>Open to Product Manager roles</span>
+        <a class="btn-accent" href="../index.html#contact">Get in touch</a>
+        <span class="avatar" aria-hidden="true"><img src="../assets/photos/portrait/james-teeling.jpg" alt=""></span>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="project-hero">
-        <div class="hero-content">
-            <span class="project-category">Mobile App Development</span>
-            <h1>Full Squish</h1>
-            <p class="subtitle">A mobile app helping mountain bikers optimize their suspension setups through experimentation and data tracking</p>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Product Manager / Developer</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">3 Months</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">iOS Mobile</span>
-                </div>
-            </div>
+    <section class="cs-hero">
+        <div class="modal__art" style="background-image:linear-gradient(155deg,#7281574d,#272e1bc4), url('../assets/posters/full-squish.jpg')"></div>
+        <div class="cs-hero__scrim"></div>
+        <div class="cs-hero__fade"></div>
+        <div class="cs-hero__content">
+            <p class="modal__kicker">Suspension setup, remembered</p>
+            <h1 class="modal__title">Full Squish</h1>
+            <p class="hero__blurb">A mobile app helping mountain bikers optimize their suspension setups through experimentation and data tracking.</p>
+            <p class="cs-hero__meta">
+                <span><strong>Role</strong> — Product Manager / Developer</span>
+                <span><strong>Timeline</strong> — 3 Months</span>
+                <span><strong>Platform</strong> — iOS Mobile</span>
+            </p>
         </div>
     </section>
+    <div class="cs-below-hero">
+        <div class="chips">
+            <span class="chip">React Native</span>
+            <span class="chip">Expo</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">AI Pair Programming</span>
+        </div>
+        <div class="metric-tiles">
+            <div class="tile"><div class="tile__value">Live</div><div class="tile__label">on the Apple App Store</div></div>
+            <div class="tile"><div class="tile__value">3 mo</div><div class="tile__label">idea to submission</div></div>
+            <div class="tile"><div class="tile__value">TestFlight</div><div class="tile__label">months of beta with real riders</div></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="project-content">
@@ -256,9 +271,21 @@
 
     <!-- Footer -->
     <footer class="project-footer">
-        <p>&copy; 2024 James Teeling. All rights reserved.</p>
-        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+        <p>&copy; 2026 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html">Back to Portfolio</a></p>
     </footer>
+
+    <script>
+        (function () {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (!navToggle || !navLinks) return;
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', String(open));
+            });
+        })();
+    </script>
 
 </body>
 </html>

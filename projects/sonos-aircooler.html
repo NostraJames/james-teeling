@@ -5,45 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sonos Cooler - Custom Cooling Solution Case Study">
     <title>Sonos Cooler - James Teeling</title>
-    <link rel="stylesheet" href="base-styles.css">
-    <link rel="stylesheet" href="project-styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="project-nav">
-        <div class="nav-content">
-            <a href="../index.html#projects" class="back-button">
-                ← Back to Portfolio
-            </a>
-            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
-        </div>
-    </nav>
+    <header class="nav">
+      <div class="nav__left">
+        <a class="wordmark" href="../index.html#top">JAMES TEELING</a>
+        <nav class="nav__links" id="navLinks" aria-label="Sections">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#toolbelt">Toolbelt</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <span class="pill-available"><span class="dot"></span>Open to Product Manager roles</span>
+        <a class="btn-accent" href="../index.html#contact">Get in touch</a>
+        <span class="avatar" aria-hidden="true"><img src="../assets/photos/portrait/james-teeling.jpg" alt=""></span>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="project-hero sonos-cooler-hero">
-        <div class="hero-content">
-            <span class="project-category">Product Design • Engineering</span>
-            <h1>Sonos Cooler</h1>
-            <p class="subtitle">A custom-designed cooling system to prevent overheating and maintain optimal performance for Sonos amplifiers in poorly ventilated spaces</p>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Product Designer / Engineer</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">2 Days</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Skills</span>
-                    <span class="meta-value">CAD Design • Engineering</span>
-                </div>
-            </div>
+    <section class="cs-hero">
+        <div class="modal__art" style="background-image:linear-gradient(155deg,#4742385c,#201e1dab), url('../assets/posters/sonos-cooler.jpg')"></div>
+        <div class="cs-hero__scrim"></div>
+        <div class="cs-hero__fade"></div>
+        <div class="cs-hero__content">
+            <p class="modal__kicker">A wind tunnel for a hot closet</p>
+            <h1 class="modal__title">Sonos Cooler</h1>
+            <p class="hero__blurb">A custom-designed cooling system to prevent overheating and maintain optimal performance for Sonos amplifiers in poorly ventilated spaces.</p>
+            <p class="cs-hero__meta">
+                <span><strong>Role</strong> — Product Designer / Engineer</span>
+                <span><strong>Timeline</strong> — 2 Days</span>
+                <span><strong>Skills</strong> — CAD Design · Engineering</span>
+            </p>
         </div>
     </section>
+    <div class="cs-below-hero">
+        <div class="chips">
+            <span class="chip">Fusion 360</span>
+            <span class="chip">CAD</span>
+            <span class="chip">3D Printing</span>
+            <span class="chip">Thermal Design</span>
+        </div>
+        <div class="metric-tiles">
+            <div class="tile"><div class="tile__value">100%</div><div class="tile__label">decrease in amp failures</div></div>
+            <div class="tile"><div class="tile__value">2 days</div><div class="tile__label">sketch to printed prototype</div></div>
+            <div class="tile"><div class="tile__value">2</div><div class="tile__label">modular pieces, stackable</div></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="project-content">
@@ -214,20 +229,20 @@
 
     <!-- Footer -->
     <footer class="project-footer">
-        <p>&copy; 2024 James Teeling. All rights reserved.</p>
-        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+        <p>&copy; 2026 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html">Back to Portfolio</a></p>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage">
+    <!-- Image Lightbox -->
+    <div id="imageModal" class="lightbox" onclick="closeModal()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="modalImage">
     </div>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="modal" onclick="closeVideoModal()">
-        <span class="modal-close">&times;</span>
-        <video class="modal-content" id="modalVideo" controls autoplay loop>
+    <!-- Video Lightbox -->
+    <div id="videoModal" class="lightbox" onclick="closeVideoModal()">
+        <span class="lightbox-close">&times;</span>
+        <video class="lightbox-content" id="modalVideo" controls autoplay loop>
             <source id="modalVideoSource" type="video/quicktime">
         </video>
     </div>
@@ -273,6 +288,16 @@
                 closeVideoModal();
             }
         });
+
+        (function () {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (!navToggle || !navLinks) return;
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', String(open));
+            });
+        })();
     </script>
 
 </body>

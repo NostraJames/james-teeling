@@ -5,45 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bike Fit Calculator - Web Application Case Study">
     <title>Bike Fit Calculator - James Teeling</title>
-    <link rel="stylesheet" href="base-styles.css">
-    <link rel="stylesheet" href="project-styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="project-nav">
-        <div class="nav-content">
-            <a href="../index.html#projects" class="back-button">
-                ← Back to Portfolio
-            </a>
-            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
-        </div>
-    </nav>
+    <header class="nav">
+      <div class="nav__left">
+        <a class="wordmark" href="../index.html#top">JAMES TEELING</a>
+        <nav class="nav__links" id="navLinks" aria-label="Sections">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#toolbelt">Toolbelt</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <span class="pill-available"><span class="dot"></span>Open to Product Manager roles</span>
+        <a class="btn-accent" href="../index.html#contact">Get in touch</a>
+        <span class="avatar" aria-hidden="true"><img src="../assets/photos/portrait/james-teeling.jpg" alt=""></span>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="project-hero bike-fit-hero">
-        <div class="hero-content">
-            <span class="project-category">Web Application • Full Stack Development</span>
-            <h1>Bike Fit Calculator</h1>
-            <p class="subtitle">Medium doesn't mean Medium anymore - A serverless web application using RAD measurements to help cyclists find their perfect bike fit across different manufacturers</p>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Engineer / Product Manager</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">4 Months</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Web Application</span>
-                </div>
-            </div>
+    <section class="cs-hero">
+        <div class="modal__art art-line" style="background-image:url('../assets/posters/bike-fit-calculator.png'), linear-gradient(155deg,#8fa073,#2e2b25)"></div>
+        <div class="cs-hero__scrim"></div>
+        <div class="cs-hero__fade"></div>
+        <div class="modal__glyph" aria-hidden="true">B</div>
+        <div class="cs-hero__content">
+            <p class="modal__kicker">Medium doesn't mean medium any more</p>
+            <h1 class="modal__title">Bike Fit Calculator</h1>
+            <p class="hero__blurb">A serverless RAD calculator that matches a rider to bikes that actually fit, across manufacturers.</p>
+            <p class="cs-hero__meta">
+                <span><strong>Role</strong> — Engineer / Product Manager</span>
+                <span><strong>Timeline</strong> — 4 Months</span>
+                <span><strong>Platform</strong> — Web Application</span>
+            </p>
         </div>
     </section>
+    <div class="cs-below-hero">
+        <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">AWS Lambda</span>
+            <span class="chip">Flask</span>
+            <span class="chip">Serverless</span>
+            <span class="chip">API</span>
+        </div>
+        <div class="metric-tiles">
+            <div class="tile"><div class="tile__value">RAD</div><div class="tile__label">one measurement, any manufacturer</div></div>
+            <div class="tile"><div class="tile__value">Serverless</div><div class="tile__label">Python on AWS Lambda</div></div>
+            <div class="tile"><div class="tile__value">2</div><div class="tile__label">bikes bought on it, both fit</div></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="project-content">
@@ -191,9 +208,21 @@
 
     <!-- Footer -->
     <footer class="project-footer">
-        <p>&copy; 2024 James Teeling. All rights reserved.</p>
-        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+        <p>&copy; 2026 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html">Back to Portfolio</a></p>
     </footer>
+
+    <script>
+        (function () {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (!navToggle || !navLinks) return;
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', String(open));
+            });
+        })();
+    </script>
 
 </body>
 </html>

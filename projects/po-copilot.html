@@ -5,45 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PO Copilot - An agentic AI workflow and RAG system for Product Owners, a case study by James Teeling">
     <title>PO Copilot - James Teeling</title>
-    <link rel="stylesheet" href="base-styles.css">
-    <link rel="stylesheet" href="project-styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css">
     <style>
-        /* Case-study-scoped visuals (no external image needed) */
-        .copilot-hero {
-            background-image: linear-gradient(135deg, rgba(18, 60, 105, 0.94) 0%, rgba(42, 157, 143, 0.92) 100%);
-            background-size: cover;
-            background-position: center;
-        }
-
         /* Principle banner */
         .principle-banner {
-            background: linear-gradient(135deg, rgba(18, 60, 105, 0.08) 0%, rgba(42, 157, 143, 0.10) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--sage-tint);
+            border: 1px solid var(--sage-border);
+            border-radius: 20px;
             padding: 1.75rem 2rem;
             margin: 2rem 0;
             text-align: center;
         }
         .principle-banner p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--ink);
             margin: 0;
             line-height: 1.6;
         }
 
         /* Workflow cards */
         .workflow-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid #2a9d8f;
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--accent);
+            border-radius: 20px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: var(--shadow-sm);
         }
         .workflow-card .workflow-eyebrow {
             display: inline-block;
@@ -51,15 +40,17 @@
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #12796e;
+            color: var(--accent-hover);
             margin-bottom: 0.5rem;
         }
         .workflow-card h3 {
+            font-family: var(--display);
+            font-weight: 400;
             font-size: 1.4rem;
-            color: var(--text-dark);
+            color: var(--ink);
             margin-bottom: 0.75rem;
         }
-        .workflow-card p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+        .workflow-card p { color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
 
         /* Agent / pipeline chain */
         .agent-chain {
@@ -70,15 +61,15 @@
             margin: 1.25rem 0 0.5rem;
         }
         .agent-node {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
+            background: #f5ead814;
+            border: 1px solid var(--hairline);
             border-radius: 8px;
             padding: 0.6rem 1rem;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--text-dark);
+            color: var(--ink);
         }
-        .agent-arrow { color: #2a9d8f; font-weight: 700; }
+        .agent-arrow { color: var(--accent-hover); font-weight: 700; }
 
         /* ===== Branching flow diagram ===== */
         .flow-diagram { margin: 2.25rem 0 0.5rem; }
@@ -86,12 +77,11 @@
         .flow-node {
             max-width: 520px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #123c69 0%, #2a9d8f 100%);
-            color: #fff;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--sage) 100%);
+            color: var(--ground);
+            border-radius: 16px;
             padding: 1.1rem 1.5rem;
             text-align: center;
-            box-shadow: var(--shadow-sm);
         }
         .flow-node .node-label {
             display: block;
@@ -99,7 +89,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.82);
+            color: #201e1dc4;
             margin-bottom: 0.3rem;
         }
         .flow-node .node-text { font-size: 1.05rem; font-weight: 700; line-height: 1.45; }
@@ -108,19 +98,19 @@
         .branch, .merge { position: relative; height: 56px; }
         .branch .stem, .merge .stem {
             position: absolute; left: calc(50% - 1px);
-            width: 2px; background: #b3c2d1;
+            width: 2px; background: var(--hairline-strong);
         }
         .branch .stem { top: 0; height: 28px; }
         .merge .stem { bottom: 0; height: 20px; }
         .branch .bar, .merge .bar {
             position: absolute;
             left: calc(25% - 0.5rem); right: calc(25% - 0.5rem);
-            height: 2px; background: #b3c2d1;
+            height: 2px; background: var(--hairline-strong);
         }
         .branch .bar { top: 27px; }
         .merge .bar { bottom: 27px; }
         .branch .leg, .merge .leg {
-            position: absolute; width: 2px; background: #b3c2d1;
+            position: absolute; width: 2px; background: var(--hairline-strong);
         }
         .branch .leg { top: 27px; height: 21px; }
         .merge .leg { bottom: 27px; height: 29px; }
@@ -130,33 +120,34 @@
             content: ''; position: absolute; bottom: -8px; left: -4px;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            border-top: 8px solid #b3c2d1;
+            border-top: 8px solid var(--hairline-strong);
         }
 
         /* Tracks */
         .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .track {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
         }
         .track-head {
             padding: 1.1rem 1.25rem;
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border-color);
+            background: #f5ead80a;
+            border-bottom: 1px solid var(--hairline);
         }
-        .track.feature .track-head { border-top: 3px solid #123c69; }
-        .track.story .track-head { border-top: 3px solid #2a9d8f; }
+        .track.feature .track-head { border-top: 3px solid var(--accent); }
+        .track.story .track-head { border-top: 3px solid var(--sage); }
         .track-head h4 {
             margin: 0 0 0.2rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.08em;
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            color: var(--text-dark);
+            color: var(--ink);
         }
-        .track-head p { margin: 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.4; }
+        .track-head p { margin: 0; font-size: 0.85rem; color: var(--ink-muted); line-height: 1.4; }
         .track ol {
             list-style: none;
             margin: 0;
@@ -169,7 +160,7 @@
             margin: 0;
             font-size: 0.93rem;
             line-height: 1.55;
-            color: var(--text-light);
+            color: var(--ink-soft);
         }
         .track li::before {
             counter-increment: s;
@@ -179,13 +170,13 @@
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 0.75rem; font-weight: 700;
-            background: #D6EAFF; border: 1px solid #b9d8f5; color: #1c4f8a;
+            background: #f5ead814; border: 1px solid var(--hairline-strong); color: var(--ink-soft);
         }
-        .track li strong { color: var(--text-dark); font-weight: 600; }
-        .track li.s-you::before { background: #E6F7EC; border-color: #a9dcbd; color: #1d6b3c; }
-        .track li.s-shared::before { background: #FBEBD0; border-color: #e3b565; color: #8a5a12; }
-        .track li.s-gate::before { background: #123c69; border-color: #123c69; color: #fff; }
-        .track li.s-loop::before { background: var(--bg-light); border-color: var(--border-color); color: var(--text-light); }
+        .track li strong { color: var(--ink); font-weight: 600; }
+        .track li.s-you::before { background: var(--sage-tint); border-color: var(--sage-border); color: var(--sage); }
+        .track li.s-shared::before { background: #d67f4826; border-color: #d67f4855; color: var(--accent-light); }
+        .track li.s-gate::before { background: var(--accent); border-color: var(--accent); color: var(--ground); }
+        .track li.s-loop::before { background: var(--ghost-fill); border-color: var(--hairline); color: var(--ink-faint); }
 
         .s-chip {
             display: inline-block;
@@ -194,8 +185,8 @@
             padding: 0.12rem 0.45rem; border-radius: 20px;
             margin-left: 0.35rem; white-space: nowrap;
         }
-        .chip-shared { background: #FBEBD0; color: #8a5a12; border: 1px solid #e3b565; }
-        .chip-gate { background: #123c69; color: #fff; }
+        .chip-shared { background: #d67f4826; color: var(--accent-light); border: 1px solid #d67f4855; }
+        .chip-gate { background: var(--accent); color: var(--ground); }
 
         .track-or { display: none; }
 
@@ -207,30 +198,30 @@
         }
         .flow-legend span {
             display: inline-flex; align-items: center; gap: 0.45rem;
-            font-size: 0.85rem; color: var(--text-light);
+            font-size: 0.85rem; color: var(--ink-muted);
         }
         .flow-legend i {
             width: 0.85rem; height: 0.85rem;
             border-radius: 50%; display: inline-block;
         }
-        .lg-you { background: #E6F7EC; border: 1px solid #a9dcbd; }
-        .lg-ai { background: #D6EAFF; border: 1px solid #b9d8f5; }
-        .lg-shared { background: #FBEBD0; border: 1px solid #e3b565; }
-        .lg-gate { background: #123c69; border: 1px solid #123c69; }
+        .lg-you { background: var(--sage-tint); border: 1px solid var(--sage-border); }
+        .lg-ai { background: #f5ead814; border: 1px solid var(--hairline-strong); }
+        .lg-shared { background: #d67f4826; border: 1px solid #d67f4855; }
+        .lg-gate { background: var(--accent); border: 1px solid var(--accent); }
 
         /* Woven-through strip */
         .woven {
             margin: 2.25rem 0 0;
-            border: 2px dashed #e3b565;
-            border-radius: 12px;
+            border: 2px dashed #d67f4866;
+            border-radius: 20px;
             padding: 1.5rem;
-            background: rgba(251, 235, 208, 0.3);
+            background: #d67f480f;
         }
         .woven-title {
             display: block; text-align: center;
             font-size: 0.7rem; letter-spacing: 0.12em;
             text-transform: uppercase; font-weight: 800;
-            color: #8a5a12; margin-bottom: 1.15rem;
+            color: var(--accent-light); margin-bottom: 1.15rem;
         }
         .woven-grid {
             display: grid;
@@ -238,13 +229,13 @@
             gap: 1.25rem;
         }
         .woven-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 14px;
             padding: 1.25rem;
         }
-        .woven-card h5 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--text-dark); }
-        .woven-card p { margin: 0; font-size: 0.92rem; color: var(--text-light); line-height: 1.65; }
+        .woven-card h5 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--ink); }
+        .woven-card p { margin: 0; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.65; }
 
         @media (max-width: 860px) {
             .tracks { grid-template-columns: 1fr; gap: 0; }
@@ -255,13 +246,13 @@
                 content: ''; position: absolute; bottom: -8px; left: -4px;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-top: 8px solid var(--border-color);
+                border-top: 8px solid var(--hairline-strong);
             }
             .track-or {
                 display: block; text-align: center;
                 font-size: 0.72rem; font-weight: 800;
                 letter-spacing: 0.14em; text-transform: uppercase;
-                color: var(--text-light);
+                color: var(--ink-muted);
                 padding: 1.1rem 0;
             }
         }
@@ -273,22 +264,22 @@
             margin: 2rem 0;
             font-size: 0.98rem;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 16px;
+            background: var(--surface);
         }
         .compare-table th, .compare-table td {
             text-align: left;
             padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--hairline);
             vertical-align: top;
         }
         .compare-table thead th {
-            background: var(--bg-light);
-            color: var(--text-dark);
+            background: #f5ead80a;
+            color: var(--ink);
             font-weight: 700;
         }
-        .compare-table tbody td { color: var(--text-light); }
-        .compare-table td:first-child { font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+        .compare-table tbody td { color: var(--ink-soft); }
+        .compare-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
         .table-scroll { overflow-x: auto; }
 
         @media (max-width: 768px) {
@@ -298,37 +289,57 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="project-nav">
-        <div class="nav-content">
-            <a href="../index.html#projects" class="back-button">
-                ← Back to Portfolio
-            </a>
-            <a href="mailto:JamesJTeeling@gmail.com" class="back-button">Get in Touch</a>
-        </div>
-    </nav>
+    <header class="nav">
+      <div class="nav__left">
+        <a class="wordmark" href="../index.html#top">JAMES TEELING</a>
+        <nav class="nav__links" id="navLinks" aria-label="Sections">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#toolbelt">Toolbelt</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <span class="pill-available"><span class="dot"></span>Open to Product Manager roles</span>
+        <a class="btn-accent" href="../index.html#contact">Get in touch</a>
+        <span class="avatar" aria-hidden="true"><img src="../assets/photos/portrait/james-teeling.jpg" alt=""></span>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="project-hero copilot-hero">
-        <div class="hero-content">
-            <span class="project-category">Agentic AI Workflow · Retrieval-Augmented Generation</span>
-            <h1>PO Copilot</h1>
-            <p class="subtitle">An agentic AI workflow and RAG system that turns a Product Owner's rough idea into a rules-checked, Definition-of-Ready-gated work item — built for the Product Owners and Product Managers at a major US airline.</p>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Product Manager &amp; System Architect</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">2026</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Domain</span>
-                    <span class="meta-value">Enterprise Product / Aviation</span>
-                </div>
-            </div>
+    <section class="cs-hero">
+        <div class="modal__art art-line" style="background-image:url('../assets/posters/po-copilot.svg'), linear-gradient(155deg,#b2622d,#402310)"></div>
+        <div class="cs-hero__scrim"></div>
+        <div class="cs-hero__fade"></div>
+        <div class="modal__glyph" aria-hidden="true">P</div>
+        <div class="cs-hero__content">
+            <p class="modal__kicker">The blank work item, answered</p>
+            <h1 class="modal__title">PO Copilot</h1>
+            <p class="hero__blurb">An agentic AI workflow and RAG system that turns a Product Owner's rough idea into a rules-checked, Definition-of-Ready-gated work item — built for the Product Owners and Product Managers at a major US airline.</p>
+            <p class="cs-hero__meta">
+                <span><strong>Role</strong> — Product Manager &amp; System Architect</span>
+                <span><strong>Timeline</strong> — 2026</span>
+                <span><strong>Domain</strong> — Enterprise Product / Aviation</span>
+            </p>
         </div>
     </section>
+    <div class="cs-below-hero">
+        <div class="chips">
+            <span class="chip">Agentic Workflow</span>
+            <span class="chip">RAG</span>
+            <span class="chip">Vector Embeddings</span>
+            <span class="chip">Azure DevOps API</span>
+            <span class="chip">Python</span>
+        </div>
+        <div class="metric-tiles">
+            <div class="tile"><div class="tile__value">~5 min</div><div class="tile__label">analytics intake, down from 30–45</div></div>
+            <div class="tile"><div class="tile__value">2-pass</div><div class="tile__label">keyword + semantic rule retrieval</div></div>
+            <div class="tile"><div class="tile__value">1 cmd</div><div class="tile__label">setup for a non-technical PO</div></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="project-content">
@@ -679,9 +690,21 @@
 
     <!-- Footer -->
     <footer class="project-footer">
-        <p>&copy; 2025 James Teeling. All rights reserved.</p>
-        <p><a href="../index.html" style="color: white;">Back to Portfolio</a></p>
+        <p>&copy; 2026 James Teeling. All rights reserved.</p>
+        <p><a href="../index.html">Back to Portfolio</a></p>
     </footer>
+
+    <script>
+        (function () {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (!navToggle || !navLinks) return;
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', String(open));
+            });
+        })();
+    </script>
 
 </body>
 </html>
