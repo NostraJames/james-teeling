@@ -318,7 +318,7 @@
         <div class="cs-hero__content">
             <p class="modal__kicker">The blank work item, answered</p>
             <h1 class="modal__title">PO Copilot</h1>
-            <p class="hero__blurb">An agentic AI workflow and RAG system that turns a Product Owner's rough idea into a rules-checked, Definition-of-Ready-gated work item — built for the Product Owners and Product Managers at a major US airline.</p>
+            <p class="hero__blurb">An agentic AI workflow and RAG system that turns a Product Owner's rough idea into a rules-checked, Definition-of-Ready-gated work item — built for the Product Owners and Product Managers at American Airlines.</p>
             <p class="cs-hero__meta">
                 <span><strong>Role</strong> — Product Manager &amp; System Architect</span>
                 <span><strong>Timeline</strong> — 2026</span>
@@ -335,7 +335,7 @@
             <span class="chip">Python</span>
         </div>
         <div class="metric-tiles">
-            <div class="tile"><div class="tile__value">~5 min</div><div class="tile__label">analytics intake, down from 30–45</div></div>
+            <div class="tile"><div class="tile__value">~5 min</div><div class="tile__label">down from 30–45, now before dev starts</div></div>
             <div class="tile"><div class="tile__value">2-pass</div><div class="tile__label">keyword + semantic rule retrieval</div></div>
             <div class="tile"><div class="tile__value">1 cmd</div><div class="tile__label">setup for a non-technical PO</div></div>
         </div>
@@ -347,8 +347,8 @@
         <!-- Overview -->
         <section class="content-section">
             <h2 class="section-title">Overview</h2>
-            <p>I designed and built <strong>PO Copilot</strong> — an AI workflow system that changes how Product Owners at a major US airline go from an idea to a properly formed Feature or User Story in Azure DevOps. What used to be hours of staring at a blank work-item form, hunting for Business Rules in an internal wiki, re-typing the same stakeholder contacts into analytics intake forms, and trying to remember every Definition of Ready criterion is now a structured, AI-guided conversation.</p>
-            <p>The system runs entirely inside the enterprise-approved AI tooling — no new vendor, no new subscription, no new credentials. It's shared with the team through a private repo, and a non-technical PO can go from clone to fully set up with a single bootstrap command. The interesting engineering isn't the prompting; it's the retrieval layer, the gates, and the fact that the whole AI's behavior is a version-controlled file.</p>
+            <p>I designed and built <strong>PO Copilot</strong> — an AI workflow system that changes how Product Owners at American Airlines go from an idea to a properly formed Feature or User Story in Azure DevOps. What used to be a bare title with none of the context anyone outside the project could use, hunting for Business Rules buried in SharePoint, and analytics paperwork assembled after the fact is now a structured, AI-guided conversation that produces all three up front.</p>
+            <p>It runs entirely inside enterprise-approved AI tooling — no new vendor, no new subscription, no new credentials — and ships through a private repo any PO can set up with a single bootstrap command. The AI's operating rules are <strong>a committed file</strong>, not a vendor-portal setting: templates, the Definition of Ready as machine-readable criteria, and every rule the AI must never break live as version-controlled markdown, so every PO gets an identical AI and every behavior change is reviewed like code.</p>
             <div class="principle-banner">
                 <p>"The AI drafts, the Definition of Ready gates, and the Product Owner posts — nothing reaches the backlog without a human saying so."</p>
             </div>
@@ -359,24 +359,15 @@
             <h2 class="section-title">The Problem</h2>
             <div class="highlight-box">
                 <h3>Challenge</h3>
-                <p>Every Product Owner faces the same friction going from an idea to a backlog-ready work item. The form is blank and offers no guidance. The Definition of Ready lives in a document nobody re-reads, so stories arrive at refinement half-formed. The company's Business Rules are spread across a wiki of ten-plus books, so rule conflicts surface in QA — or in production — instead of during drafting. And every analytics request means filling the same intake forms from scratch, by hand.</p>
+                <p>Most Features in the backlog had a title and nothing else — no problem statement, no proposed solution, no notes on what to consider. Only the people already on the project understood what a feature actually did or why it mattered. This wasn't a lack of care: Product Owners at American Airlines carry a heavy load of responsibilities, and writing a full PRD for every feature is the first thing to get squeezed out.</p>
             </div>
-            <p>The specific failure points I set out to solve:</p>
+            <p>That same time pressure showed up in three places at once:</p>
             <ul>
-                <li><strong>Unenforced Definition of Ready:</strong> stories entered sprint planning missing a persona, acceptance criteria, or a defined scope — and the delay showed up downstream, not at authoring time.</li>
-                <li><strong>Undiscoverable Business Rules:</strong> a PO could only find a rule if they already knew its official terminology. Conflicts got caught late, when they were expensive.</li>
-                <li><strong>Repeated manual grind:</strong> analytics intake was roughly 30–45 minutes of form-filling per item, redone from scratch and inconsistently each time.</li>
-                <li><strong>No memory between sessions:</strong> the same clarifying questions got asked — or missed — over and over.</li>
-                <li><strong>Technical setup as an adoption barrier:</strong> a productivity tool that needs a developer to install is a tool most Product Owners will never adopt.</li>
+                <li><strong>User Stories were just as thin.</strong> Usually a name, rarely a description, and acceptance criteria even less often than on Features — which meant devs and POs re-litigated scope in every refinement.</li>
+                <li><strong>Business Rules went stale and stayed hidden.</strong> POs didn't have time to keep them current, and they lived as Word documents in SharePoint — hard to find, hard to navigate, not searchable, and overwhelming to read through even when you found the right one.</li>
+                <li><strong>Analytics intake happened at the wrong time.</strong> The intake process is long, and in practice its artifacts weren't built until after developers had already started — sometimes finished — the work. Analytics review would come back after dev was done, and launch slipped waiting on it.</li>
             </ul>
-        </section>
-
-        <!-- The Solution -->
-        <section class="content-section">
-            <h2 class="section-title">The Solution: An Opinionated AI Teammate</h2>
-            <p>PO Copilot is a conversation, not a form. A PO opens their terminal, brain-dumps a rough idea in plain English, and gets back a polished draft — persona and acceptance criteria enforced, relevant Business Rules cross-checked and cited, analytics intake documents generated, and posting to Azure DevOps handled on command.</p>
-            <p>What makes it a system rather than a prompt is that the AI's operating rules are <strong>a committed file in the repo</strong>, not settings in a vendor portal. Templates, the Definition of Ready encoded as machine-readable criteria, the conversational flows, and the Golden Rules the AI must never break all live as version-controlled markdown. Any PO who pulls the repo gets an identical AI, and every change to its behavior is diffable and reviewed like code.</p>
-            <p>On top of that foundation, three workflows do the real work.</p>
+            <p>PO Copilot is a conversation, not a form: a PO brain-dumps a rough idea in plain English and gets back a polished draft, with posting to Azure DevOps handled on command. Three workflows do the real work.</p>
         </section>
 
         <!-- Workflow 1 -->
@@ -384,14 +375,14 @@
             <h2 class="section-title">Workflow 1 — Brain Dump to a Gated Draft</h2>
             <div class="workflow-card">
                 <span class="workflow-eyebrow">Templates · Definition of Ready · Conversational Flow</span>
-                <h3>The Definition of Ready as executable criteria, not a document</h3>
-                <p>The foundation is a set of structured templates — a PRD-shaped Feature (Problem Statement, Proposed Solution, Expected Results) and a User Story in Connextra format with acceptance criteria always written Given / When / Then. But the templates aren't the interesting part. The interesting part is that the Definition of Ready is encoded as machine-readable criteria, each tagged <strong>Critical</strong> or <strong>Non-critical</strong>, spanning product and business readiness, design, technical, requirements, and team tiers — plus a conditional tier that only activates for mobile-facing stories, covering platforms, dark mode, accessibility, error handling, and test plan.</p>
+                <h3>Turning a bare title into a real PRD, without costing the PO an hour</h3>
+                <p>The AI writes the Problem Statement, Proposed Solution, and considerations a Feature was missing — and the persona, scope, and Given/When/Then acceptance criteria a User Story was missing — by asking, not assuming. The Definition of Ready itself is encoded as machine-readable criteria, each tagged <strong>Critical</strong> or <strong>Non-critical</strong>, across product, design, technical, and team readiness, with an extra tier for mobile-facing stories.</p>
                 <ul>
-                    <li><strong>Critical criteria are a hard gate.</strong> Persona, acceptance criteria, scope, and user outcome cannot be skipped or left blank. Before this, the DoR was a document that got glanced at; now it's something the draft has to pass through.</li>
-                    <li><strong>One question at a time.</strong> The conversational flow enforces a single clarifying question per turn, with predefined phrasing, ordering, and an edge-case taxonomy. This is the difference between handing someone a twenty-question form and talking it through with them.</li>
-                    <li><strong>No fabrication, ever.</strong> If the PO hasn't said it, the AI doesn't write it. Gaps become questions, not invented content.</li>
+                    <li><strong>Critical criteria are a hard gate.</strong> Persona, acceptance criteria, scope, and user outcome can't be skipped or left blank — the DoR is no longer a document that gets glanced at.</li>
+                    <li><strong>One question at a time,</strong> in plain language, instead of a blank form or a twenty-question checklist.</li>
+                    <li><strong>No fabrication, ever.</strong> If the PO hasn't said it, the AI doesn't write it — gaps become questions, not invented content.</li>
                 </ul>
-                <p>The result is that quality moves upstream. Instead of refinement being where a story's holes get discovered, it's where a complete story gets discussed.</p>
+                <p>Quality moves upstream: refinement stops being where a story's holes get discovered and becomes where a complete story gets discussed.</p>
             </div>
         </section>
 
@@ -401,8 +392,8 @@
             <div class="workflow-card">
                 <span class="workflow-eyebrow">Retrieval-Augmented Generation · Shift-Left Compliance</span>
                 <h3>Find the rule even when you don't know what it's called</h3>
-                <p>While a PO drafts, the AI searches the company's Business Rules for anything relevant to what's being built — and surfaces conflicts before they reach development. The first pass is a keyword search against the wiki's REST API: fast, exact, zero cost. But keyword search only works if you already know the official terminology, which is exactly the knowledge a newer PO doesn't have.</p>
-                <p>So I built a second, semantic pass — a full retrieval-augmented generation pipeline over the Business Rules corpus:</p>
+                <p>Business Rules used to live as Word documents in SharePoint — hard to find, hard to navigate, not searchable, and overwhelming to work through even when you had the right one open. POs didn't have time to keep them updated, so they drifted out of date. I migrated the whole set into <strong>BookStack</strong>, a self-hosted wiki with a real API, then built retrieval and authoring on top of it so keeping rules current stops being a task nobody has time for.</p>
+                <p>While a PO drafts, the AI searches Business Rules for anything relevant to what's being built and surfaces conflicts before they reach development. The first pass is a keyword search against BookStack's API: fast, exact, zero cost. But keyword search only works if you already know the official terminology — exactly the knowledge a newer PO doesn't have. So I built a second, semantic pass — a full retrieval-augmented generation pipeline over the Business Rules corpus:</p>
                 <div class="agent-chain">
                     <span class="agent-node">Fetch</span>
                     <span class="agent-arrow">→</span>
@@ -417,14 +408,14 @@
                     <span class="agent-node">Search</span>
                 </div>
                 <ul>
-                    <li><strong>Fetch &amp; parse</strong> pulls every page from the Business Rules shelf via API and converts HTML to clean plain text.</li>
-                    <li><strong>Chunk</strong> splits pages into overlapping, paragraph-boundary-aware windows so a rule that spans a section break isn't cut in half.</li>
-                    <li><strong>Embed</strong> calls an embeddings model through the same enterprise-approved AI trust boundary the team already uses — deliberately reusing the existing auth token rather than introducing a new vendor or a new credential to get approved.</li>
-                    <li><strong>Index</strong> stores chunks and vectors as blobs in a local SQLite file that is gitignored and never committed — internal content stays on the PO's machine. An incremental refresh compares update timestamps and only re-embeds pages that actually changed.</li>
+                    <li><strong>Fetch &amp; parse</strong> pulls every page from BookStack via API and converts it to clean plain text.</li>
+                    <li><strong>Chunk</strong> splits pages into overlapping, paragraph-aware windows so a rule spanning a section break isn't cut in half.</li>
+                    <li><strong>Embed</strong> calls an embeddings model through the same enterprise-approved AI trust boundary the team already uses — no new vendor, no new credential.</li>
+                    <li><strong>Index</strong> stores chunks and vectors in a local, gitignored SQLite file; an incremental refresh only re-embeds pages that actually changed.</li>
                     <li><strong>Search</strong> ranks by cosine similarity and returns the top pages by best-matching chunk.</li>
                 </ul>
-                <p>The practical effect: a PO can search <em>"letting someone move seats after boarding"</em> and get back the Seat Change Request rules — even though none of those words appear in the page title. When a rule conflicts with what's being drafted, the AI stops, asks the PO to resolve the contradiction, and documents the resolution in the draft with a citation back to the source page.</p>
-                <p>Retrieval also runs in the other direction. When a Business Rule needs to be <em>created or updated</em> as part of a review, the AI first consults the company's own rule-authoring standard, so any new rule content it drafts matches the house format before a human rule owner ever sees it.</p>
+                <p>A PO can search <em>"letting someone move seats after boarding"</em> and get back the Seat Change Request rules, even though none of those words are in the page title. When a rule conflicts with what's being drafted, the AI stops, asks the PO which one should change, and documents the resolution with a citation back to the source page.</p>
+                <p>Retrieval runs in the other direction too. The AI follows the team's own standard for how a Business Rule should be written, so when a PO creates or updates a rule — right from inside the drafting conversation, instead of as a separate task — the result already matches house format instead of needing a rewrite from whoever owns the rule.</p>
             </div>
         </section>
 
@@ -433,20 +424,21 @@
             <h2 class="section-title">Workflow 3 — Analytics Intake Generation</h2>
             <div class="workflow-card">
                 <span class="workflow-eyebrow">Document Automation · Institutional Memory</span>
-                <h3>From a finished draft to real, ready-to-send files</h3>
-                <p>Once a Feature or Story draft is final, the AI asks whether it needs analytics tracking. If it does, it walks a structured intake — summary, scope, timeline, flow steps, and the stakeholder questions, decisions, and KPIs the analytics team needs — and then generates two <em>actual files</em>, not a copy-pasteable block of text: a flow document and a stakeholder workbook, both matching the exact format the analytics team expects.</p>
+                <h3>Fixing the timing, not just the typing</h3>
+                <p>Analytics intake was arriving at the wrong point in the process — built after developers had already started, sometimes finished, the work, so analytics review landed after dev was done and pushed launch out. Moving intake into the drafting conversation fixes the sequencing: it's ready to submit the moment the Feature or Story exists, before a developer picks it up.</p>
+                <p>Once a draft is final, the AI asks whether it needs analytics tracking, walks a structured intake — scope, timeline, flow steps, the stakeholder questions and KPIs the analytics team needs — and generates two <em>actual files</em>, not a block of text to copy in: a flow document and a stakeholder workbook, in the exact format the analytics team expects.</p>
                 <ul>
-                    <li><strong>Contacts are asked once.</strong> Product Owner, Product Analyst, Program Manager, and lead developer are captured on first run and saved to a local config, so they auto-fill on every future form. That's the institutional memory that was missing before.</li>
-                    <li><strong>Real documents, real formats.</strong> A Python generator produces the Word and Excel deliverables from structured data, so the output is shareable the moment it exists.</li>
+                    <li><strong>Contacts are asked once.</strong> Product Owner, Product Analyst, Program Manager, and lead developer are captured on first run and auto-fill every form after that.</li>
+                    <li><strong>Real documents, real formats.</strong> A Python generator produces the Word and Excel deliverables from structured data, shareable the moment they exist.</li>
                 </ul>
-                <p>This collapsed roughly 30–45 minutes of manual, error-prone form-filling per item into about five minutes that happens inside the drafting conversation instead of after it.</p>
+                <p>The visible number is roughly 30–45 minutes of manual form-filling down to about five. The bigger fix is that those five minutes now happen before dev starts, not after — which is what actually protects the launch date.</p>
             </div>
         </section>
 
         <!-- End-to-end pipeline -->
         <section class="content-section">
             <h2 class="section-title">How It Fits Together</h2>
-            <p>There isn't one path through the system — there are two, and which one a PO lands on depends on whether they're framing a broad initiative or a scoped piece of work. Both open the same way, with a plain-English brain dump. Both get interrupted by the same two safety nets. And both converge on the same single human gate.</p>
+            <p>Two paths through the system, depending on whether a PO is framing a broad initiative or a scoped piece of work. Both start with a plain-English brain dump, both get interrupted by the same two safety nets, and both converge on the same human gate.</p>
 
             <div class="flow-diagram">
 
@@ -524,11 +516,11 @@
                     <div class="woven-grid">
                         <div class="woven-card">
                             <h5>Business Rule Validation</h5>
-                            <p>Never run on its own — it fires automatically mid-draft. Exact keyword search plus a local semantic pass catches rules described in different words than the brain dump used. If a rule conflicts with what's being proposed, the AI stops and asks which one should change: the rule, or the feature. The answer is written into the draft.</p>
+                            <p>Fires automatically mid-draft — keyword plus semantic search catches conflicts even when the brain dump doesn't use the rule's exact wording, and the resolution gets written into the draft.</p>
                         </div>
                         <div class="woven-card">
                             <h5>Analytics Form Automation</h5>
-                            <p>Also automatic, once a draft is solid. A short set of questions — what's tracked, which platforms, the step-by-step user flow, the stakeholder questions the data should answer — produces two real, ready-to-share files. Nothing is submitted anywhere; the PO shares them however their process works.</p>
+                            <p>Also automatic, once a draft is solid. A short set of questions produces two real, ready-to-share files — nothing is submitted anywhere; the PO shares them however their process works.</p>
                         </div>
                     </div>
                 </div>
@@ -538,35 +530,24 @@
             <p>Two details in that diagram carry most of the design intent. The Feature flow deliberately <em>isn't</em> a gated checklist — a Feature is a document to get right, so the AI plays sounding board instead of gatekeeper. The User Story flow is the opposite: it ends in a pass/fail grade because a story is a commitment a team will act on. Same system, two different postures, chosen per artifact.</p>
         </section>
 
-        <!-- Built for adoption -->
-        <section class="content-section">
-            <h2 class="section-title">Built for Adoption, Not Just for Me</h2>
-            <p>A tool only one person can install isn't a system — it's a personal script. Most of the hardest work in this build went into making it something a non-technical Product Owner could adopt without borrowing a developer.</p>
-            <ul>
-                <li><strong>A written onboarding path</strong> covering access-token creation and API credential setup on both Mac and Windows, step by step, with the same safe-credential pattern each time.</li>
-                <li><strong>One-command bootstrap for the semantic search setup.</strong> What started as a seven-step manual process became a single script that installs Python dependencies, installs the CLI (trying each of the common Windows package managers in turn, and Homebrew on Mac), triggers sign-in if needed, tests access, and builds the first index.</li>
-                <li><strong>Graceful degradation.</strong> If the embeddings service isn't available, the bootstrap exits cleanly and the PO still has full keyword search. Nobody is left with a broken tool.</li>
-                <li><strong>Secret hygiene by design.</strong> Every credential is a shell environment variable. Nothing is printed, logged, or committed. Setup is verified by checking a token's <em>length</em>, never its value, and the onboarding explicitly tells POs to type tokens into their terminal rather than into a chat window.</li>
-            </ul>
-        </section>
-
-        <!-- Architecture decisions -->
+        <!-- Architecture & adoption -->
         <section class="content-section">
             <h2 class="section-title">Architecture &amp; Design Decisions</h2>
-            <p>The decisions worth defending in this build were about trust and adoption more than about models:</p>
+            <p>The decisions worth defending here were about trust and adoption more than about models:</p>
             <ul>
-                <li><strong>The system prompt is a committed file.</strong> Encoding the AI's operating rules as version-controlled markdown instead of vendor-portal configuration means behavior is reproducible, auditable, diffable, and reviewed through pull requests like any other code. Every PO gets the same AI.</li>
-                <li><strong>Draft first, post on command.</strong> The AI never writes to Azure DevOps unless explicitly told to. Drafts land locally and gitignored. That single rule removes the anxiety of AI-generated content ending up somewhere unintended — and it's why POs trust it with real work.</li>
-                <li><strong>Semantic search is additive, never a replacement.</strong> Keyword search stays the first pass because it's fast, exact, and free; semantic retrieval is a second pass merged and de-duplicated by page URL. A PO who never sets up the index loses nothing — they just don't get the paraphrase-matching upgrade. Choosing "augment" over "replace" kept the fast path fast and made adoption optional rather than all-or-nothing.</li>
-                <li><strong>Reuse the trust boundary you already have.</strong> Building the retrieval layer on the enterprise-approved AI tooling's existing auth meant no new vendor review, no new credentials, and no new attack surface. The most elegant architecture that needs a six-month security approval ships later than the good one that doesn't.</li>
-                <li><strong>Boring storage on purpose.</strong> A local SQLite file with brute-force cosine similarity is more than fast enough at this corpus size, needs zero services, and is trivially gitignore-safe. A vector database would have been more impressive and strictly worse.</li>
+                <li><strong>The system prompt is a committed file,</strong> not vendor-portal configuration — reproducible, diffable, and reviewed through pull requests like any other code. Every PO gets the same AI.</li>
+                <li><strong>Draft first, post on command.</strong> The AI never writes to Azure DevOps unless told to; drafts land locally and gitignored. That single rule is why POs trust it with real work.</li>
+                <li><strong>Semantic search augments, never replaces.</strong> Keyword search stays the fast first pass; semantic retrieval merges in as a second pass. A PO who skips the index setup loses nothing but the paraphrase-matching upgrade — adoption stays optional, not all-or-nothing.</li>
+                <li><strong>Reuse the trust boundary you already have.</strong> The retrieval layer runs on the enterprise-approved AI tooling's existing auth — no new vendor review, no new credentials. The elegant architecture that needs six months of security approval ships later than the good one that doesn't.</li>
+                <li><strong>Boring storage on purpose.</strong> A local SQLite file with brute-force cosine similarity is more than fast enough at this corpus size and trivially gitignore-safe. A vector database would have been more impressive and strictly worse.</li>
+                <li><strong>Adoption was a design constraint, not an afterthought.</strong> A seven-step manual setup became one bootstrap command, with a written onboarding path for both Mac and Windows and graceful degradation — if the embeddings service isn't reachable, keyword search still works. Every credential is a shell environment variable, verified by length only, never logged or committed.</li>
             </ul>
         </section>
 
         <!-- Impact -->
         <section class="content-section">
             <h2 class="section-title">Impact</h2>
-            <p>The system is live and shared across the team. The clearest single number is analytics intake — roughly <strong>30–45 minutes of manual form-filling collapsed to about five</strong>, and moved inside the drafting flow rather than after it. The larger change is harder to put a number on: Business Rule conflicts that used to surface in QA or post-launch now surface while the story is still being written.</p>
+            <p>The system is live and shared across the team. Analytics intake is the clearest single number — <strong>roughly 30–45 minutes collapsed to about five</strong>, and moved ahead of dev instead of after it, so it no longer delays launch. The harder-to-measure change: Business Rules are current and searchable for the first time, and conflicts that used to surface in QA or post-launch now surface while the story is still being written.</p>
             <div class="table-scroll">
                 <table class="compare-table">
                     <thead>
@@ -589,8 +570,8 @@
                         </tr>
                         <tr>
                             <td>Business Rules</td>
-                            <td>Conflicts found in QA or after launch</td>
-                            <td>Surfaced during drafting, with citations</td>
+                            <td>Word docs in SharePoint, rarely updated</td>
+                            <td>Searchable in BookStack, updated in the flow</td>
                         </tr>
                         <tr>
                             <td>Rule discovery</td>
@@ -599,8 +580,8 @@
                         </tr>
                         <tr>
                             <td>Analytics intake</td>
-                            <td>~30–45 min, manual, from scratch</td>
-                            <td>~5 min, generated as real files</td>
+                            <td>~30–45 min, built after dev already started</td>
+                            <td>~5 min, ready before dev picks it up</td>
                         </tr>
                         <tr>
                             <td>Setup</td>
@@ -626,7 +607,7 @@
                 <span class="tech-tag">Vector Embeddings</span>
                 <span class="tech-tag">SQLite Vector Index</span>
                 <span class="tech-tag">Azure DevOps REST API</span>
-                <span class="tech-tag">Wiki REST API Integration</span>
+                <span class="tech-tag">BookStack API Integration</span>
                 <span class="tech-tag">Python · numpy · openpyxl · python-docx</span>
                 <span class="tech-tag">Prompt / Context Engineering</span>
                 <span class="tech-tag">Human-in-the-Loop Design</span>
@@ -638,12 +619,9 @@
         <section class="content-section">
             <h2 class="section-title">What This Project Sharpened</h2>
             <ul>
-                <li><strong>Retrieval engineering:</strong> building a working RAG pipeline end to end — chunking strategy, embedding, incremental re-indexing, and similarity ranking — and knowing when brute force is the right answer.</li>
-                <li><strong>Turning process into product:</strong> taking a Definition of Ready that existed as a document and re-expressing it as executable criteria with enforceable gates. Process only changes behavior when it's in the path of the work.</li>
-                <li><strong>Designing for trust:</strong> no fabrication, cited sources, drafts before actions, and a human key on anything that writes to a system of record.</li>
-                <li><strong>Shipping inside enterprise constraints:</strong> approved tooling only, no new vendors, no new credentials — and treating those constraints as design inputs rather than obstacles.</li>
-                <li><strong>Developer experience for non-developers:</strong> collapsing a seven-step setup into one command, across two operating systems and corporate IT restrictions, because adoption is a feature.</li>
-                <li><strong>Dogfooding my own role:</strong> I built this on my own team, for the Product Owners I work alongside, on the exact pain I felt every sprint — which is the shortest possible feedback loop between problem and solution.</li>
+                <li><strong>Fixing timing, not just typing:</strong> the analytics intake problem wasn't effort, it was sequencing — recognizing that and moving the work earlier mattered more than automating the form itself.</li>
+                <li><strong>Turning process into product:</strong> re-expressing a Definition of Ready that lived as a document into executable criteria with enforceable gates. Process only changes behavior when it's in the path of the work.</li>
+                <li><strong>Shipping inside enterprise constraints:</strong> approved tooling only, no new vendors, no new credentials — treating those as design inputs, not obstacles, while still designing for trust: no fabrication, cited sources, drafts before actions.</li>
             </ul>
         </section>
 
