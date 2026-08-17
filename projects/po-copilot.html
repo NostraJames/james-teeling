@@ -316,13 +316,13 @@
         <div class="cs-hero__fade"></div>
         <div class="modal__glyph" aria-hidden="true">P</div>
         <div class="cs-hero__content">
-            <p class="modal__kicker">The blank work item, answered</p>
+            <p class="modal__kicker">Built for me. Adopted by the team.</p>
             <h1 class="modal__title">PO Copilot</h1>
-            <p class="hero__blurb">An agentic AI workflow and RAG system that turns a Product Owner's rough idea into a rules-checked, Definition-of-Ready-gated work item — built for the Product Owners and Product Managers at American Airlines.</p>
+            <p class="hero__blurb">An agentic AI workflow I built for myself to write better Feature PRDs and User Stories, that grew into a tool Product Owners across the company now use to draft, check against Business Rules and our Definition of Ready, and post straight to Azure DevOps.</p>
             <p class="cs-hero__meta">
-                <span><strong>Role</strong> — Product Manager &amp; System Architect</span>
+                <span><strong>Role</strong> — Product Owner</span>
                 <span><strong>Timeline</strong> — 2026</span>
-                <span><strong>Domain</strong> — Enterprise Product / Aviation</span>
+                <span><strong>Domain</strong> — Enterprise Product</span>
             </p>
         </div>
     </section>
@@ -347,98 +347,51 @@
         <!-- Overview -->
         <section class="content-section">
             <h2 class="section-title">Overview</h2>
-            <p>I designed and built <strong>PO Copilot</strong> — an AI workflow system that changes how Product Owners at American Airlines go from an idea to a properly formed Feature or User Story in Azure DevOps. What used to be a bare title with none of the context anyone outside the project could use, hunting for Business Rules buried in SharePoint, and analytics paperwork assembled after the fact is now a structured, AI-guided conversation that produces all three up front.</p>
-            <p>It runs entirely inside enterprise-approved AI tooling — no new vendor, no new subscription, no new credentials — and ships through a private repo any PO can set up with a single bootstrap command. The AI's operating rules are <strong>a committed file</strong>, not a vendor-portal setting: templates, the Definition of Ready as machine-readable criteria, and every rule the AI must never break live as version-controlled markdown, so every PO gets an identical AI and every behavior change is reviewed like code.</p>
+            <p><strong>PO Copilot</strong> is an agentic AI workflow I built to help myself write better Feature PRDs and User Stories, ask the questions I don't always think to ask myself, generate my analytics intake documents, and post everything straight to Azure DevOps without opening a browser. What started as a personal tool grew, one real problem at a time, into something that also checks drafts against our team's Business Rules and Definition of Ready, and it's now being adopted by Product Owners across the company through the Dojo, the company's internal product and technical training program.</p>
             <div class="principle-banner">
-                <p>"The AI drafts, the Definition of Ready gates, and the Product Owner posts — nothing reaches the backlog without a human saying so."</p>
+                <p>"The AI drafts, I approve, then it posts — nothing reaches the backlog without a human saying so."</p>
             </div>
         </section>
 
-        <!-- The Problem -->
+        <!-- Origin -->
         <section class="content-section">
-            <h2 class="section-title">The Problem</h2>
-            <div class="highlight-box">
-                <h3>Challenge</h3>
-                <p>Most Features in the backlog had a title and nothing else — no problem statement, no proposed solution, no notes on what to consider. Only the people already on the project understood what a feature actually did or why it mattered. This wasn't a lack of care: Product Owners at American Airlines carry a heavy load of responsibilities, and writing a full PRD for every feature is the first thing to get squeezed out.</p>
-            </div>
-            <p>That same time pressure showed up in three places at once:</p>
-            <ul>
-                <li><strong>User Stories were just as thin.</strong> Usually a name, rarely a description, and acceptance criteria even less often than on Features — which meant devs and POs re-litigated scope in every refinement.</li>
-                <li><strong>Business Rules went stale and stayed hidden.</strong> POs didn't have time to keep them current, and they lived as Word documents in SharePoint — hard to find, hard to navigate, not searchable, and overwhelming to read through even when you found the right one.</li>
-                <li><strong>Analytics intake happened at the wrong time.</strong> The intake process is long, and in practice its artifacts weren't built until after developers had already started — sometimes finished — the work. Analytics review would come back after dev was done, and launch slipped waiting on it.</li>
-            </ul>
-            <p>PO Copilot is a conversation, not a form: a PO brain-dumps a rough idea in plain English and gets back a polished draft, with posting to Azure DevOps handled on command. Three workflows do the real work.</p>
+            <h2 class="section-title">Origin</h2>
+            <p>I care about writing good PRDs and clear user stories. That's a personal standard, not something anyone assigned me, but even holding myself to it, I'd still miss things.</p>
+            <p>One example that stuck with me: we needed to raise marketing opt-in numbers while staying compliant with GDPR for non-US users. My first instinct was to key off geolocation or IP address, but that falls apart fast. What if someone downloads the app while visiting the US, gets flagged as a US user, then flies home to Europe? Now they're under GDPR, but our system is still treating them like a US person. Add a VPN into the mix while they're in Europe, and it gets messier still. Policy and legal were going to be reviewing this, so I needed to be thorough about every edge case, not just the obvious one.</p>
+            <p>That's the kind of thing I wanted help catching. Not because I couldn't do it myself, but because I know I don't always think of every angle alone, and I wanted to get better at that.</p>
+            <p>I'd been playing with Claude Code on side projects for a while, building small agentic workflows for myself. When I got a Copilot license at work, that was the moment. I could finally build this for real work and actually share it with people, not just experiment on my own time.</p>
+            <p>The one thing I was firm about from the start: I didn't want the AI filling in gaps on its own. I've seen AI hallucinate and take liberties enough times to know that if you let it guess, it will, and it'll sound confident doing it. I learned that if you have it ask clarifying questions instead of assuming, you get a much better result. That became the whole premise of the tool: brain dump first, then let the AI interrogate me instead of the other way around.</p>
         </section>
 
-        <!-- Workflow 1 -->
+        <!-- Building It -->
         <section class="content-section">
-            <h2 class="section-title">Workflow 1 — Brain Dump to a Gated Draft</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Templates · Definition of Ready · Conversational Flow</span>
-                <h3>Turning a bare title into a real PRD, without costing the PO an hour</h3>
-                <p>The AI writes the Problem Statement, Proposed Solution, and considerations a Feature was missing — and the persona, scope, and Given/When/Then acceptance criteria a User Story was missing — by asking, not assuming. The Definition of Ready itself is encoded as machine-readable criteria, each tagged <strong>Critical</strong> or <strong>Non-critical</strong>, across product, design, technical, and team readiness, with an extra tier for mobile-facing stories.</p>
-                <ul>
-                    <li><strong>Critical criteria are a hard gate.</strong> Persona, acceptance criteria, scope, and user outcome can't be skipped or left blank — the DoR is no longer a document that gets glanced at.</li>
-                    <li><strong>One question at a time,</strong> in plain language, instead of a blank form or a twenty-question checklist.</li>
-                    <li><strong>No fabrication, ever.</strong> If the PO hasn't said it, the AI doesn't write it — gaps become questions, not invented content.</li>
-                </ul>
-                <p>Quality moves upstream: refinement stops being where a story's holes get discovered and becomes where a complete story gets discussed.</p>
+            <h2 class="section-title">Building It</h2>
+            <p>The first version was just the core workflow: brain dump, then clarifying questions. I'd tell it my goal, my concerns, and my first-pass idea for a solution. On the GDPR example, I'd explain what I wanted, and it would come back with things like: what about people using a VPN for personal privacy, or frequent travelers whose location changes between when they open the app and when a rule needs to apply. The end result followed the standard format: a PRD for Features, and for User Stories, "As a / I want / So that" with Given/When/Then acceptance criteria.</p>
+            <p>Once that was working, I realized my analytics intake was next. It wasn't that I was bad at it, it was that it was tedious enough that I kept putting it off. So I trained the workflow on the templates our analytics team needed and had it generate the actual documents, a feature flow doc and an analytics questions and observation requirements spreadsheet, straight from the same brain dump and conversation.</p>
+            <p>That felt like a good stopping point, but then I thought about how much time I was losing to a different kind of busywork. At the company, a Feature typically breaks into three or four User Stories, and each of those needs to exist once per platform, iOS and Android, each with its own tags for that platform's dev team. So a Feature that started as three or four stories turned into six to eight once you accounted for platforms, all duplicated by hand: copy the story, retitle it, re-tag it, every time. I got Azure DevOps integrated using a PAT and had the workflow post directly and handle the duplication itself. What used to be manual copy-paste for every platform now happens instantly from a single brain dump, I just confirm the content before it posts.</p>
+            <p>Around this time, the team put together a formal Definition of Ready: the things a story needed before a dev could pick it up without having to ask questions, like acceptance criteria, what happens if it fails, design mocks done, analytics done, and a few other categories. I trained the workflow on it. It didn't change the fact that it was still asking questions, but now those questions were aimed at the DoR specifically, grading the draft against it and asking follow-ups to close any gaps, most often around acceptance criteria and failure cases.</p>
+            <p>Then I found out our Business Rules were sitting in an outdated Word document, forty pages of it, and the team needed it migrated to BookStack. I did the migration myself, organizing it into shelves, books, chapters, and pages, then trained the workflow on it so it could check whatever I was drafting against the actual rules and flag anything that conflicted. I also wanted to learn RAG properly, and this was a real problem I could apply it to, which is how I learn best. Building real retrieval also kept the workflow from being token-heavy, since it wasn't dumping the whole document into every conversation. I ended up with two passes:</p>
+            <div class="agent-chain">
+                <span class="agent-node">Fetch</span>
+                <span class="agent-arrow">→</span>
+                <span class="agent-node">Parse</span>
+                <span class="agent-arrow">→</span>
+                <span class="agent-node">Chunk</span>
+                <span class="agent-arrow">→</span>
+                <span class="agent-node">Embed</span>
+                <span class="agent-arrow">→</span>
+                <span class="agent-node">Index</span>
+                <span class="agent-arrow">→</span>
+                <span class="agent-node">Search</span>
             </div>
+            <p>Keyword search against BookStack's API is the fast first pass. Semantic search is the backup, which matters most for newer POs who don't know the exact wording a rule uses yet, since it's a much better experience than something that only works if you already know the keyword.</p>
+            <p>Last was making it shareable. Not everyone is in the same place with AI, especially CLI tools, and most people aren't familiar with setting up a PAT or an API integration. I knew that if onboarding was hard, it wouldn't matter how good the workflow was, people would drop off before they ever used it. So I built a walkthrough for non-technical setup on both Mac and Windows. The company is large enough that I don't mind personally walking people through it, but self-service had to work too, or adoption would depend entirely on my bandwidth.</p>
         </section>
 
-        <!-- Workflow 2 -->
+        <!-- How it works today -->
         <section class="content-section">
-            <h2 class="section-title">Workflow 2 — Two-Pass Business Rules Retrieval (RAG)</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Retrieval-Augmented Generation · Shift-Left Compliance</span>
-                <h3>Find the rule even when you don't know what it's called</h3>
-                <p>Business Rules used to live as Word documents in SharePoint — hard to find, hard to navigate, not searchable, and overwhelming to work through even when you had the right one open. POs didn't have time to keep them updated, so they drifted out of date. I migrated the whole set into <strong>BookStack</strong>, a self-hosted wiki with a real API, then built retrieval and authoring on top of it so keeping rules current stops being a task nobody has time for.</p>
-                <p>While a PO drafts, the AI searches Business Rules for anything relevant to what's being built and surfaces conflicts before they reach development. The first pass is a keyword search against BookStack's API: fast, exact, zero cost. But keyword search only works if you already know the official terminology — exactly the knowledge a newer PO doesn't have. So I built a second, semantic pass — a full retrieval-augmented generation pipeline over the Business Rules corpus:</p>
-                <div class="agent-chain">
-                    <span class="agent-node">Fetch</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">Parse</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">Chunk</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">Embed</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">Index</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">Search</span>
-                </div>
-                <ul>
-                    <li><strong>Fetch &amp; parse</strong> pulls every page from BookStack via API and converts it to clean plain text.</li>
-                    <li><strong>Chunk</strong> splits pages into overlapping, paragraph-aware windows so a rule spanning a section break isn't cut in half.</li>
-                    <li><strong>Embed</strong> calls an embeddings model through the same enterprise-approved AI trust boundary the team already uses — no new vendor, no new credential.</li>
-                    <li><strong>Index</strong> stores chunks and vectors in a local, gitignored SQLite file; an incremental refresh only re-embeds pages that actually changed.</li>
-                    <li><strong>Search</strong> ranks by cosine similarity and returns the top pages by best-matching chunk.</li>
-                </ul>
-                <p>A PO can search <em>"letting someone move seats after boarding"</em> and get back the Seat Change Request rules, even though none of those words are in the page title. When a rule conflicts with what's being drafted, the AI stops, asks the PO which one should change, and documents the resolution with a citation back to the source page.</p>
-                <p>Retrieval runs in the other direction too. The AI follows the team's own standard for how a Business Rule should be written, so when a PO creates or updates a rule — right from inside the drafting conversation, instead of as a separate task — the result already matches house format instead of needing a rewrite from whoever owns the rule.</p>
-            </div>
-        </section>
-
-        <!-- Workflow 3 -->
-        <section class="content-section">
-            <h2 class="section-title">Workflow 3 — Analytics Intake Generation</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Document Automation · Institutional Memory</span>
-                <h3>Fixing the timing, not just the typing</h3>
-                <p>Analytics intake was arriving at the wrong point in the process — built after developers had already started, sometimes finished, the work, so analytics review landed after dev was done and pushed launch out. Moving intake into the drafting conversation fixes the sequencing: it's ready to submit the moment the Feature or Story exists, before a developer picks it up.</p>
-                <p>Once a draft is final, the AI asks whether it needs analytics tracking, walks a structured intake — scope, timeline, flow steps, the stakeholder questions and KPIs the analytics team needs — and generates two <em>actual files</em>, not a block of text to copy in: a flow document and a stakeholder workbook, in the exact format the analytics team expects.</p>
-                <ul>
-                    <li><strong>Contacts are asked once.</strong> Product Owner, Product Analyst, Program Manager, and lead developer are captured on first run and auto-fill every form after that.</li>
-                    <li><strong>Real documents, real formats.</strong> A Python generator produces the Word and Excel deliverables from structured data, shareable the moment they exist.</li>
-                </ul>
-                <p>The visible number is roughly 30–45 minutes of manual form-filling down to about five. The bigger fix is that those five minutes now happen before dev starts, not after — which is what actually protects the launch date.</p>
-            </div>
-        </section>
-
-        <!-- End-to-end pipeline -->
-        <section class="content-section">
-            <h2 class="section-title">How It Fits Together</h2>
-            <p>Two paths through the system, depending on whether a PO is framing a broad initiative or a scoped piece of work. Both start with a plain-English brain dump, both get interrupted by the same two safety nets, and both converge on the same human gate.</p>
+            <h2 class="section-title">How It Works Today</h2>
+            <p>Two paths through the system now, depending on whether I'm framing a broad initiative or a scoped piece of work. Both start with a plain-English brain dump, both get interrupted by the same two safety nets, and both converge on the same human gate.</p>
 
             <div class="flow-diagram">
 
@@ -527,75 +480,36 @@
 
             </div>
 
-            <p>Two details in that diagram carry most of the design intent. The Feature flow deliberately <em>isn't</em> a gated checklist — a Feature is a document to get right, so the AI plays sounding board instead of gatekeeper. The User Story flow is the opposite: it ends in a pass/fail grade because a story is a commitment a team will act on. Same system, two different postures, chosen per artifact.</p>
+            <p>Two details in that diagram carry most of the intent behind it. The Feature flow deliberately <em>isn't</em> a gated checklist. A Feature is a document to get right, so the AI plays sounding board instead of gatekeeper. The User Story flow is the opposite, it ends in a pass/fail grade, because a story is a commitment a team will act on. Same system, two different postures, chosen per artifact.</p>
         </section>
 
-        <!-- Architecture & adoption -->
+        <!-- Design Principles -->
         <section class="content-section">
-            <h2 class="section-title">Architecture &amp; Design Decisions</h2>
-            <p>The decisions worth defending here were about trust and adoption more than about models:</p>
+            <h2 class="section-title">Design Principles</h2>
+            <p>A few rules I held myself to, deliberately, from early on:</p>
             <ul>
-                <li><strong>The system prompt is a committed file,</strong> not vendor-portal configuration — reproducible, diffable, and reviewed through pull requests like any other code. Every PO gets the same AI.</li>
-                <li><strong>Draft first, post on command.</strong> The AI never writes to Azure DevOps unless told to; drafts land locally and gitignored. That single rule is why POs trust it with real work.</li>
-                <li><strong>Semantic search augments, never replaces.</strong> Keyword search stays the fast first pass; semantic retrieval merges in as a second pass. A PO who skips the index setup loses nothing but the paraphrase-matching upgrade — adoption stays optional, not all-or-nothing.</li>
-                <li><strong>Reuse the trust boundary you already have.</strong> The retrieval layer runs on the enterprise-approved AI tooling's existing auth — no new vendor review, no new credentials. The elegant architecture that needs six months of security approval ships later than the good one that doesn't.</li>
-                <li><strong>Boring storage on purpose.</strong> A local SQLite file with brute-force cosine similarity is more than fast enough at this corpus size and trivially gitignore-safe. A vector database would have been more impressive and strictly worse.</li>
-                <li><strong>Adoption was a design constraint, not an afterthought.</strong> A seven-step manual setup became one bootstrap command, with a written onboarding path for both Mac and Windows and graceful degradation — if the embeddings service isn't reachable, keyword search still works. Every credential is a shell environment variable, verified by length only, never logged or committed.</li>
+                <li><strong>Make me think, don't think for me.</strong> The whole point was to ask me questions that made me consider the feature or solution more carefully, not to do the brain work for me. That's my job. The AI's job is to automate the tedious parts and help me think, not replace the thinking.</li>
+                <li><strong>Never let it assume.</strong> If I hadn't said it, the AI didn't get to invent it. Gaps became questions, not guesses.</li>
+                <li><strong>Drafts, not actions.</strong> This was a decision from the start: the AI drafts, I approve, then it posts. It never touches Azure DevOps on its own.</li>
+                <li><strong>Use what people already have.</strong> I built this on our existing Copilot license instead of a new vendor or a separate tool. A new portal in a new space is just another thing people have to learn, and it wouldn't get adopted. This way, everyone's building AI fluency on the same tool they already have access to.</li>
+                <li><strong>Keep it simple enough to prove itself.</strong> I know I have a tendency to over-engineer things, and I was conscious about not letting that happen here, because adoption depended on it. Credentials are handled through system environment variables instead of pasting keys into a terminal or chat window, both for security and to teach people the right way to do it. Beyond that, I stayed away from anything fancier than it needed to be. Something simple that works and proves its value beats something impressive that never gets used.</li>
             </ul>
+        </section>
+
+        <!-- Rollout & Adoption -->
+        <section class="content-section">
+            <h2 class="section-title">Rollout &amp; Adoption</h2>
+            <p>I used it myself for a while before showing it to anyone else. The first person I brought it to was a Product Owner on the mobile app team. I led with the two things I knew hit the biggest pain points for POs, business rules and analytics form generation, and once she saw those, she wanted to see the full workflow. She loved it and pushed for it to roll out to the rest of the Product Owners, figuring most people would get at least the business rules and analytics pieces out of it even if they didn't use the whole thing end to end.</p>
+            <p>From there it went to the company's Dojo, the internal program where teams come in to build product mindset and technical skills. It's mostly been developer-facing AI workflow tooling so far, nothing built for Product Owners specifically, so this was new territory for them. I sent our CTIO an email with a link to the repo, which has a full writeup of what the workflow does and how it works. He was impressed enough to share it with several IT leaders, and since then the Dojo team has been asking for demos and access so they can learn it themselves and start rolling it out to other teams.</p>
+            <p>Right now it's live with the mobile app Product Owners, about ten users, opt-in rather than mandatory. Company-wide rollout through the Dojo starts next month.</p>
         </section>
 
         <!-- Impact -->
         <section class="content-section">
-            <h2 class="section-title">Impact</h2>
-            <p>The system is live and shared across the team. Analytics intake is the clearest single number — <strong>roughly 30–45 minutes collapsed to about five</strong>, and moved ahead of dev instead of after it, so it no longer delays launch. The harder-to-measure change: Business Rules are current and searchable for the first time, and conflicts that used to surface in QA or post-launch now surface while the story is still being written.</p>
-            <div class="table-scroll">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Old Process</th>
-                            <th>This System</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Drafting</td>
-                            <td>Blank form, inconsistent quality</td>
-                            <td>Guided conversation, structured every time</td>
-                        </tr>
-                        <tr>
-                            <td>Definition of Ready</td>
-                            <td>A document that got skimmed</td>
-                            <td>Critical criteria enforced as a hard gate</td>
-                        </tr>
-                        <tr>
-                            <td>Business Rules</td>
-                            <td>Word docs in SharePoint, rarely updated</td>
-                            <td>Searchable in BookStack, updated in the flow</td>
-                        </tr>
-                        <tr>
-                            <td>Rule discovery</td>
-                            <td>Keyword only — you had to know the term</td>
-                            <td>Keyword plus semantic paraphrase matching</td>
-                        </tr>
-                        <tr>
-                            <td>Analytics intake</td>
-                            <td>~30–45 min, built after dev already started</td>
-                            <td>~5 min, ready before dev picks it up</td>
-                        </tr>
-                        <tr>
-                            <td>Setup</td>
-                            <td>Would have required developer help</td>
-                            <td>One bootstrap command, non-technical guide</td>
-                        </tr>
-                        <tr>
-                            <td>Reach</td>
-                            <td>One person's local scripts</td>
-                            <td>Shared repo — any PO clones and runs</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 class="section-title">Impact &amp; Reception</h2>
+            <p>There was some initial resistance, mostly the usual reaction to "another tool" and a little intimidation about using AI this directly. That faded once people actually saw what it produced: Features and Stories posted straight to ADO without opening a browser, Business Rules referenced and updated the same way, and analytics forms generated without anyone touching a Word doc or spreadsheet by hand. The analytics piece got the loudest reaction, more than one person's response to no longer having to build those forms manually was a straight "thank you."</p>
+            <p>Devs have noticed the difference too. Stories are more complete going into refinement, and there's less of them filling in gaps or taking their own liberties with a story that was underspecified to begin with.</p>
+            <p>Analytics intake is the one place I have a real number: roughly 30–45 minutes of manual form-building down to about 5. Business Rules referencing and updating doesn't have a clean time estimate attached to it, but making that process this much easier has made it something people actually do, instead of something that gets skipped.</p>
         </section>
 
         <!-- Tech stack -->
@@ -617,12 +531,12 @@
 
         <!-- Skills -->
         <section class="content-section">
-            <h2 class="section-title">What This Project Sharpened</h2>
-            <ul>
-                <li><strong>Fixing timing, not just typing:</strong> the analytics intake problem wasn't effort, it was sequencing — recognizing that and moving the work earlier mattered more than automating the form itself.</li>
-                <li><strong>Turning process into product:</strong> re-expressing a Definition of Ready that lived as a document into executable criteria with enforceable gates. Process only changes behavior when it's in the path of the work.</li>
-                <li><strong>Shipping inside enterprise constraints:</strong> approved tooling only, no new vendors, no new credentials — treating those as design inputs, not obstacles, while still designing for trust: no fabrication, cited sources, drafts before actions.</li>
-            </ul>
+            <h2 class="section-title">What This Sharpened</h2>
+            <p>Technically, this was the most hands-on I've been: building a functional RAG pipeline, wiring up multiple integrations, and structuring sub-agents into an actual agentic workflow instead of a single prompt. I got to see all of it produce something my team actually uses.</p>
+            <p>It also changed how I think about the tedious parts of my own job. Busywork is what stops me from thinking creatively in the first place, until it becomes the problem I get to solve instead of the thing slowing me down.</p>
+            <p>If I'd known from the start everything this would eventually become, I probably would have written that first prompt differently. But that's what building a product actually looks like: start small, and let each new problem you run into tell you what to build next.</p>
+            <p>The clearest lesson was about building for other people versus building for myself. If I'd only ever built this for me, I wouldn't have bothered making it friendly to a wider range of people, and I definitely wouldn't have cared about a simple onboarding process the AI walks a new user through. Knowing it was going to be shared changed the decisions I made along the way, not just the finished product.</p>
+            <p>The thing I want someone reading this to take away: I notice problems and build solutions people actually adopt, because I design with the user in mind, not just the outcome I want.</p>
         </section>
 
         <!-- Call to Action -->
