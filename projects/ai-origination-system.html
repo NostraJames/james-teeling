@@ -205,194 +205,68 @@
         <!-- Overview -->
         <section class="content-section">
             <h2 class="section-title">Overview</h2>
-            <p>I designed and built an AI-assisted origination system for an M&amp;A advisory firm — now live and in use at the firm — a boutique that finds privately-held companies open to being sold and matches them to the right private-equity buyer. Origination is the top of the deal funnel, and it has traditionally been slow, memory-dependent, and hard to repeat: every campaign started from a blank page.</p>
-            <p>The system is a coordinated team of specialized AI agents built on top of a durable <strong>data layer</strong>. Agents do the heavy lifting — research, list-building, scoring, formatting — but the design philosophy is deliberate: the AI produces drafts, humans make the decisions, and the compounding value lives in the data the firm accumulates, not in any single generation.</p>
-            <div class="principle-banner">
-                <p>"AI as a tool, not a crutch — every agent output is a draft a human reviews, and the firm's durable asset is the memory it builds, not the model that runs it."</p>
-            </div>
+            <p>I operate on a principle: I won't talk to a prospect or seller without knowing what I'm talking about. If I'm going to take their time, I owe them someone who understands their world. Their industry challenges, what's shifting in their market, what makes them different, who they're competing against. Otherwise I'm just another sales call, and they won't take me seriously.</p>
+            <p>When I was in the BD role, I realized I couldn't scale that knowledge. I could talk intelligently about one or two companies, but to do this repeatedly, to take on more prospects, to speak credibly about unfamiliar industries, I needed a way to get educated fast. So I built an agentic research workflow. A coordinated team of AI agents that could pull together verified, sourced industry intelligence without hallucinating or making things up.</p>
+            <p>I ran it for myself for a while. When I shared it with the team, the President saw the value immediately and asked me to roll it out. We've now scaled it so that every BD rep can walk into a call with that same foundation. Understanding the landscape, the challenges, the differentiators. I trained two people to manage the workflow, and it's become the source of credible, research-backed insights the firm uses to educate clients and approach sellers.</p>
+            <p>That success revealed a second problem. With better research, we could pursue more deals. But when a prospect responded, matching them to the right PE client was still slow and dependent on tribal knowledge. So we built the PEG Database to solve that bottleneck.</p>
         </section>
 
         <!-- The Problem -->
         <section class="content-section">
             <h2 class="section-title">The Problem</h2>
-            <div class="highlight-box">
-                <h3>Challenge</h3>
-                <p>Boutique origination runs on human memory and one-off effort. A client explains what they want on a call; an analyst holds that thesis in their head and builds a list keyed to a single theme — usually just "industry." Companies already owned or already contacted slip back into lists. When a company finally replies weeks later, someone has to remember which client it was ever meant for. Nothing compounds — the next campaign begins from zero.</p>
-            </div>
-            <p>The specific failure points I set out to solve:</p>
-            <ul>
-                <li><strong>Shallow targeting:</strong> lists built on one dimension instead of the client's full investment thesis.</li>
-                <li><strong>No institutional memory:</strong> the firm's knowledge lived in inboxes and analysts' heads, not in a durable store.</li>
-                <li><strong>Lost attribution:</strong> when a reply landed, "who was this for?" was answered from memory, if at all.</li>
-                <li><strong>Manual, repeated grind:</strong> research, contact hunting, and list formatting redone by hand every time.</li>
-            </ul>
+            <p>I wanted to scale how intelligently I could talk to prospects and sellers. When I was in the BD role, I could research one company well, but doing that for every call, every prospect, every new industry wasn't sustainable. I'd Google, find reports, look at company websites, ask colleagues. It worked, but it took time and I wasn't always confident in what I'd pieced together.</p>
+            <p>The real constraint was that knowledge wasn't documented anywhere. If I learned something valuable about an industry, it stayed with me. If someone else on the team needed that same insight, they'd have to either replicate the research or ask me. Everything was in someone's head.</p>
+            <p>I wanted to build something that let me get educated faster on unfamiliar industries and do it in a way that was verifiable and shareable. Something I could reference and build on, and that the team could use too.</p>
         </section>
 
-        <!-- The Solution -->
+        <!-- The Solution Part 1: Research Workflow -->
         <section class="content-section">
-            <h2 class="section-title">The Solution: A Data Layer With an AI Workforce</h2>
-            <p>The spine of the system is <strong>not</strong> the agents — it's two living data stores that give the firm memory. Everything else reads from and writes back into them:</p>
-            <ul>
-                <li><strong>The Client Repository</strong> — one living investment thesis per PE client, updated from every intake call and quarterly catch-up. Each thesis carries a machine-readable criteria block that every downstream agent consumes.</li>
-                <li><strong>The Target Tracker</strong> — a ledger of every company the firm touches: which campaign it went into, which client(s) it was matched to, why, and its status. This is the reverse-lookup memory that answers "a company just replied — who was this for?"</li>
-            </ul>
-            <p>The agents are the workforce that operate on those stores. Tooling can change; the theses and the tracker come with the firm. On top of that spine, I designed three core AI workflows.</p>
+            <h2 class="section-title">Solution Part 1: The Research Workflow</h2>
+            <p>I built this as a coordinated relay of specialized agents instead of one agent doing all the research. The reason is simple: narrow agents that are really good at one thing make fewer mistakes than one agent trying to be good at everything. And more importantly, they can teach each other.</p>
+            <p>The workflow has four stages. A researcher agent pulls together industry intelligence from multiple sources and writes a draft. Then a verifier steps in. It takes each claim in the report, checks the source that was cited, and cross-references it against what the report actually says. If there's a mismatch, it flags it and tells the researcher exactly where it went wrong and how to do better. Then the researcher goes back and rewrites that section. The verifier checks it again. They go back and forth until the report passes a credibility threshold the verifier is comfortable with.</p>
+            <p>It's token-heavy. That loop can take a while. But credibility is worth it. I'd rather spend the tokens and know the information is solid than move fast and hand someone bad data.</p>
+            <p>Once verification passes, an editor tightens up the narrative and a publisher formats it. We originally had the publisher generate HTML and PDFs through agents, but that was inefficient. Now it triggers a Python script to handle the formatting, which saves tokens and time.</p>
+            <p>When someone on the team wants a report on an industry, the two people managing the workflow take the request, ask for nuanced details about what they actually need to know, and strategically prompt the agents. A full report takes 45 to 60 minutes to produce. The output is polished, sourced, and defensible.</p>
         </section>
 
-        <!-- Workflow 1: Research -->
+
+        <!-- Solution Part 2: The PEG Database -->
         <section class="content-section">
-            <h2 class="section-title">Workflow 1 — Deep Research Pipeline</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Company &amp; Industry Intelligence</span>
-                <h3>Research → Verify → Edit → Publish</h3>
-                <p>Before the firm approaches a company or briefs a client on a sector, it needs research it can trust. I built this as a four-stage relay of specialized agents rather than a single "go research this" prompt — because a lone model produces confident, plausible, and sometimes wrong output. Separating <em>generation</em> from <em>verification</em> is what makes the result defensible.</p>
-                <div class="agent-chain">
-                    <span class="agent-node">Ultra-Researcher</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">The Verifier</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">The Editor</span>
-                    <span class="agent-arrow">→</span>
-                    <span class="agent-node">The Publisher</span>
-                </div>
-                <ul>
-                    <li><strong>Ultra-Researcher</strong> runs deep, multi-source investigation across the web — financials, M&amp;A history, market landscape — into a structured draft.</li>
-                    <li><strong>The Verifier</strong> is an adversarial pass: it re-checks claims against sources and flags anything unsupported, so findings aren't just plausible, they're substantiated.</li>
-                    <li><strong>The Editor</strong> tightens the verified draft into a clean, decision-ready narrative.</li>
-                    <li><strong>The Publisher</strong> formats the final report for the client or internal use.</li>
-                </ul>
-                <p>The output feeds both sides of the system: sector intelligence sharpens a client's thesis, and company-level research informs how a target is approached.</p>
-            </div>
+            <h2 class="section-title">Solution Part 2: The PEG Database</h2>
+            <p>The second problem came from my own work. I wanted to be self-sufficient as a BD. I didn't want to keep asking peers about PE clients — their thesis, what they were looking for, what they'd already acquired. I wanted to research it myself and be more capable. If I had all that information in one place, searchable and organized, I could do my job better. And if other new BDs had access to it, they'd get up to speed faster too.</p>
+            <p>I didn't build a database in the traditional sense. No infrastructure, no backend. Instead, I built a searchable HTML interface backed by a JSON file. Everything lives on OneDrive, where the whole team can access it. It's simple, it's shareable, and when we have the capacity to build real infrastructure, we can evolve it into something more robust.</p>
+            <p>When a BD needs to find PE clients, they search by industry keywords, location, or company size. The keywords are reverse-engineered from what each PEG profile actually contains. Each profile holds whatever that PE firm provided: their thesis, past acquisitions, regions they focus on, budget sizes, EBITDA ranges, revenue bands, employee count preferences, anything that defines what they're looking for.</p>
+            <p>An agent takes new PEG notes and updates, turns them into JSON files, and then triggers a Python script to regenerate the searchable HTML interface. Profiles stay current because the firm is in constant conversation with these PE clients. When a BD or banker learns something new in a call, they send it to the two people managing the system. They update the profiles with the change. If a client says "we're interested in data centers in Texas," and then later says "actually, Oklahoma is the priority," that gets recorded and searchable the next time someone's looking.</p>
+            <p>It's low-tech by design. The asset isn't the database technology. The asset is the information inside it.</p>
         </section>
 
-        <!-- Workflow 2: Thesis + List -->
+
+        <!-- How They Work Together -->
         <section class="content-section">
-            <h2 class="section-title">Workflow 2 — Living Client Thesis &amp; List Generation</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Source of Truth · Client Repository</span>
-                <h3>Thesis Architect → List Builder</h3>
-                <p>This is the source-of-truth workflow — everything else feeds from it. Instead of a thesis living in an analyst's head, the <strong>Thesis Architect</strong> turns raw client material — intake-call notes, their portfolio, their website, quarterly updates — into a structured, <em>living</em> thesis document. Two design choices matter here:</p>
-                <ul>
-                    <li><strong>Inferences are tagged apart from stated facts.</strong> The agent never lets an assumption masquerade as something the client actually said, and it flags open questions to raise on the next call.</li>
-                    <li><strong>It maintains, not just creates.</strong> Each quarterly catch-up updates the same living document with a dated change log — so the thesis is always current and its evolution is auditable.</li>
-                </ul>
-                <p>The <strong>List Builder</strong> then reads that thesis and translates its <em>firmographic</em> criteria — business model, revenue band, geography, ownership type, seller-intent signals — into a ready-to-run search against a private-company intelligence platform. Two deliberate behaviors:</p>
-                <ul>
-                    <li><strong>It scopes multi-sector theses.</strong> Rather than a broad, unfocused blast, it recommends one focused slice (starting with the client's active platforms) so effort lands where it converts.</li>
-                    <li><strong>It excludes already-owned companies at search time</strong> — pointing the query at the firm's "already in CRM / already contacted" lists — so a company the firm already has is never re-surfaced.</li>
-                </ul>
-                <p>A key architectural nuance: the List Builder keeps metrics the data platform <em>can't</em> filter (EBITDA, margin, growth) out of the search entirely, deferring them to the scoring stage — matching each tool to what it's actually good at.</p>
-            </div>
+            <h2 class="section-title">How They Work Together</h2>
+            <p>The research workflow and the PEG database are separate tools built to solve different problems. But they work together when it makes sense.</p>
+            <p>There are two common scenarios. Sometimes a BD gets a prospect response and needs a quick answer: which PE client is this a fit for? They search the database, find the match, and move forward. It takes minutes.</p>
+            <p>Other times, a BD wants to bring credibility into the conversation. They might be taking on a seller who's new to the firm, or they want to brief a PE client before an initial call. They run the research workflow first to understand the industry landscape, the challenges that company faces, what the competitive set looks like. Then they search the database to find which clients in that space might be interested. Now they can walk into the call informed and speak intelligently about the prospect's world.</p>
+            <p>Both workflows start and end with a human decision. The research agents produce reports a person reviews and strategically prompts. The database surfaces options a person evaluates. The systems accelerate judgment, they don't replace it.</p>
         </section>
 
-        <!-- Workflow 3: Matching -->
+        <!-- Tech & Architecture -->
         <section class="content-section">
-            <h2 class="section-title">Workflow 3 — Company-to-Client Matching</h2>
-            <div class="workflow-card">
-                <span class="workflow-eyebrow">Scoring &amp; Attribution</span>
-                <h3>The Matcher — bidirectional fit scoring</h3>
-                <p>The <strong>Matcher</strong> scores a company against a client thesis and returns tiers — <strong>Strong / Possible / Weak / Review / Excluded</strong> — each with a plain-English rationale. It's the judgment layer that turns a raw candidate list into a ranked, defensible one. Two things make it more than a similarity score:</p>
-                <ul>
-                    <li><strong>It runs in both directions.</strong> One thesis → a whole list (build a campaign), and one company → every client thesis (a new company appears, or a reply lands — who is this actually for?). That second direction is what powers the firm's attribution memory.</li>
-                    <li><strong>Fit and confidence are separate axes.</strong> Two-stage scoring applies confident-only gates first, then an ordinal weighted score. Thin data lowers <em>confidence</em> without faking a low <em>fit</em>, and an uncertain signal is flagged for human review — never silently dropped.</li>
-                </ul>
-                <p>Scored companies flow to a <strong>CSV export agent</strong> that maps each tier to a 0–100 match score, attaches the verified owner contact, and produces an import-ready file for the firm's CRM — with every score and every blank field explained, and nothing fabricated.</p>
-            </div>
+            <h2 class="section-title">Tech & Architecture</h2>
+            <p>The stack is deliberately simple. Claude agents handle research, verification, and profile updates. Python scripts take JSON files and markdown documents and generate PDFs or searchable HTMLs depending on what's needed. Everything lives on OneDrive so the team can access it.</p>
+            <p>For the research workflow, the architecture came from building. I started with a researcher agent and manually verified its output. That was time-consuming, so I built a verifier agent to do it. The verification loop — researcher writing, verifier checking, back-and-forth until credibility passes — is the core design. Each agent has one job. Narrow scope means easier to test, easier to trust, easier to improve.</p>
+            <p>For the PEG database, an agent takes new PEG notes and updates, turns them into JSON files, and then triggers the Python script to regenerate the searchable HTML interface. The data lives in JSON because it's human-readable, diff-able, and easy to version. When new information comes in from conversations with PEG clients, it gets added to the JSON and the Python script regenerates the HTML. OneDrive handles sharing across the team.</p>
+            <p>The philosophy throughout is pragmatism. Start with what's simple and shareable. Avoid infrastructure you don't need yet. If RAG and a vector database make sense down the line, that's an evolution, not a complete rebuild.</p>
         </section>
 
-        <!-- End-to-end pipeline -->
+        <!-- Results and Impact -->
         <section class="content-section">
-            <h2 class="section-title">How It Fits Together</h2>
-            <p>End to end, a client thesis becomes an import-ready, scored target list — with a human review gate at every step, so no expensive action happens without approval.</p>
-            <div class="flow-grid">
-                <div class="flow-step">
-                    <h4>Client Thesis</h4>
-                    <p>Thesis Architect turns client material into a structured living thesis.</p>
-                    <span class="actor ai">AI Draft</span>
-                </div>
-                <div class="flow-step">
-                    <h4>Draft the Search</h4>
-                    <p>List Builder translates the thesis into a firmographic query, excluding already-owned companies.</p>
-                    <span class="actor ai">AI Draft</span>
-                </div>
-                <div class="flow-step">
-                    <h4>Pull Candidates</h4>
-                    <p>The human orchestrator runs the search and pulls firmographics + verified owner contacts.</p>
-                    <span class="actor human">Human-Run</span>
-                </div>
-                <div class="flow-step">
-                    <h4>Score the Fit</h4>
-                    <p>The Matcher tiers each company against the thesis with rationale.</p>
-                    <span class="actor ai">AI Draft</span>
-                </div>
-                <div class="flow-step">
-                    <h4>Export</h4>
-                    <p>0–100 match scores + owner contacts become an import-ready CRM file.</p>
-                    <span class="actor ai">AI Draft</span>
-                </div>
-                <div class="flow-step">
-                    <h4>Record &amp; Close the Loop</h4>
-                    <p>Every company lands in the Target Tracker and the exclusion list, so the next build skips it.</p>
-                    <span class="actor human">Human-Approved</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Architecture decisions -->
-        <section class="content-section">
-            <h2 class="section-title">Architecture &amp; Design Decisions</h2>
-            <p>The interesting problems in this build were less about prompting and more about systems design:</p>
-            <ul>
-                <li><strong>Data backbone: local-first Markdown + git.</strong> Simple, versioned, and AI-native. The theses and tracker are human-readable and diff-able, with a clean path to migrate to a database once structured lookup or multi-user editing becomes the bottleneck — not before.</li>
-                <li><strong>Orchestrator-runs-tools, agents-draft.</strong> A real platform constraint shaped the whole architecture: the external data connectors run in the main session, not inside spawned sub-agents. So the pattern throughout is that agents <em>draft and format</em> while the orchestrator <em>executes</em> the live, billable calls — which also happens to keep a human in the loop before anything is spent.</li>
-                <li><strong>Separation of concerns per agent.</strong> Each agent has one job and a clear contract with the next. Research is separated from verification; firmographic filtering is separated from fit scoring; scoring is separated from formatting. Narrow agents are easier to trust, test, and improve.</li>
-                <li><strong>Never fabricate.</strong> If a contact email or data point isn't available, the field is left blank — never invented. Trust is the product.</li>
-            </ul>
-        </section>
-
-        <!-- Impact -->
-        <section class="content-section">
-            <h2 class="section-title">Impact</h2>
-            <p>In one worked campaign, the system turned a single client's add-on thesis into <strong>25 fully-scored acquisition targets</strong> — each tiered, rationale-attached, paired with a verified owner contact, and formatted for direct CRM import. What used to be a multi-day analyst grind became a reviewed, repeatable pipeline.</p>
-            <p>More importantly, the firm now compounds. Every company it touches is remembered, attributed, and automatically excluded from future searches — so each campaign starts smarter than the last.</p>
-            <div class="table-scroll">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Old Process</th>
-                            <th>This System</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>List basis</td>
-                            <td>One theme — usually just "industry"</td>
-                            <td>The client's full thesis, scored and tiered</td>
-                        </tr>
-                        <tr>
-                            <td>Already-owned</td>
-                            <td>Caught by memory, ad hoc</td>
-                            <td>Excluded automatically at search time</td>
-                        </tr>
-                        <tr>
-                            <td>Attribution</td>
-                            <td>Recalled from memory when a reply lands</td>
-                            <td>Recorded up front, instantly reverse-lookupable</td>
-                        </tr>
-                        <tr>
-                            <td>Contacts</td>
-                            <td>Manual hunt, deal by deal</td>
-                            <td>Owner name + verified email pulled in-flow</td>
-                        </tr>
-                        <tr>
-                            <td>Memory</td>
-                            <td>Every campaign starts from zero</td>
-                            <td>A compounding, versioned data asset</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 class="section-title">Results and Impact</h2>
+            <p>The two systems unlocked different kinds of value.</p>
+            <p>On the research side, having credible, sourced information readily available changed what the firm could pursue. They now have the confidence to take on more seller representations. Before, approaching a seller meant doing research on the fly, hoping it held up. Now they can say they have researched the landscape, understand the industry, and can speak to what buyers are actually looking for. That credibility opens doors.</p>
+            <p>On the database side, the shift was about self-sufficiency. New BDs are no longer dependent on tribal knowledge or asking veterans "which PE client would want this?" They can access the full profile of each client, understand their thesis, and generate campaign lists tailored to specific PEGs. Those nuanced, PEG-specific lists outperform broad industry lists. A BD can now do the work themselves.</p>
+            <p>The broader impact is team confidence. The President has said people feel more confident in their work. That matters. There's also been a shift in team dynamic. It's become less about asking the right person and more about a stronger team mentality — everyone has access to the same information.</p>
+            <p>We don't have hard metrics on deal velocity or close rates. But the confidence, the self-sufficiency, and the ability to pursue sell-side representation where we couldn't before — those are real shifts.</p>
         </section>
 
         <!-- Tech stack -->
@@ -410,27 +284,24 @@
             </div>
         </section>
 
-        <!-- Skills / What I Learned -->
+        <!-- What This Project Sharpened -->
         <section class="content-section">
             <h2 class="section-title">What This Project Sharpened</h2>
-            <ul>
-                <li><strong>AI systems architecture:</strong> designing a fleet of narrow, single-purpose agents with clean contracts between them — instead of one over-loaded generalist prompt.</li>
-                <li><strong>Data-first thinking:</strong> recognizing that the durable value is the accumulating data layer, and designing the agents to serve it rather than the other way around.</li>
-                <li><strong>Designing for trust:</strong> adversarial verification, tagged inferences, separated fit-vs-confidence, and a no-fabrication rule — because in M&amp;A a wrong "fact" is worse than a missing one.</li>
-                <li><strong>Human-in-the-loop product sense:</strong> placing review gates exactly where a costly or irreversible action happens, so automation accelerates judgment instead of replacing it.</li>
-                <li><strong>Working within platform constraints:</strong> turning a hard limitation (where tools can and can't run) into a cleaner orchestrator-and-workforce architecture.</li>
-            </ul>
+            <p>Building this reinforced some core beliefs and taught me hard lessons I'd learned before.</p>
+            <p>On architecture, I learned that designing agents with narrow, single-purpose roles works. One agent that's really good at researching will outperform one agent trying to research, verify, edit, and publish all at once. Clear contracts between agents make the whole system more trustworthy and easier to debug.</p>
+            <p>On data, I already believed the durable asset is the information layer, not the model running on top of it. This project reinforced it. The PEG database will outlive whatever AI tools we use. If we swap to a different model or a different workflow tomorrow, the data stays. That's the real value.</p>
+            <p>On adoption, I learned — or relearned — that over-engineering kills usage. The interface has to be accessible to people who aren't technical. I've made this mistake before, shipping something that's technically impressive but too complicated for the team to actually use. This time I started with a searchable HTML form and stayed simple. That was the right call.</p>
+            <p>On trust, I learned that in M&A, information has to be right. Speed matters, but not as much as credibility. The verification loop costs tokens and time, but it's worth it. A wrong "fact" handed to a PE client or a prospect is worse than moving a few minutes slower.</p>
         </section>
 
         <!-- Roadmap -->
         <section class="content-section">
             <h2 class="section-title">Roadmap</h2>
-            <p>The core origination pipeline is built and producing real deliverables. What's next:</p>
-            <ul>
-                <li><strong>Campaign Writer:</strong> combine the scored list, sector research, and the client's angle into tailored outreach cadence copy.</li>
-                <li><strong>Response Triage:</strong> when a company replies, auto-look it up in the Target Tracker and hand the rep a one-page brief — who this was for, why, and what to know walking into the call.</li>
-                <li><strong>Structured store migration:</strong> move from Markdown to a queryable database once multi-user editing and structured lookup become the bottleneck.</li>
-            </ul>
+            <p>The core research workflow and database are built and working. The roadmap is about making them smarter as data grows.</p>
+            <p>The interface will evolve from a searchable form to an LLM chat experience. Instead of typing keywords and clicking filters, a BD will be able to ask questions like "which clients would want a manufacturing company in the Midwest?" or upload a prospect profile and get matching recommendations back. The underlying data layer stays the same. The interaction just becomes more natural.</p>
+            <p>Matching will get smarter too. Right now the database shows 3 to 5 PEG options and a human decides. With enough data in a RAG system, the LLM can attach confidence scores. A company might be 87% match for one client, 42% for another. The human still decides, but they're making that decision with better signal.</p>
+            <p>The timeline depends on how quickly the data comes in. As BDs and bankers feed new information from client conversations, the database gets richer. When it's robust enough, the migration to RAG and smarter matching is the next step. We're not rebuilding. It's an evolution of what's already working.</p>
+            <p>For now, the focus is making what we have smarter and more useful. The infrastructure will follow the data.</p>
         </section>
 
         <!-- Call to Action -->
